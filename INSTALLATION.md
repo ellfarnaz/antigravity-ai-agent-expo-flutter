@@ -73,34 +73,37 @@ Install agents and workflows **globally** to make them available in **all your A
 ### What Gets Installed Globally?
 
 ```
-~/.gemini/antigravity/
-├── global_agents/
-│   ├── a11y-enforcer-flutter.md
-│   ├── a11y-enforcer-reactnative.md
-│   ├── design-token-guardian-flutter.md
-│   ├── design-token-guardian-reactnative.md
-│   ├── grand-architect-flutter.md
-│   ├── grand-architect-reactnative.md
-│   ├── performance-enforcer-flutter.md
-│   ├── performance-enforcer-reactnative.md
-│   ├── performance-prophet-flutter.md
-│   ├── performance-prophet-reactnative.md
-│   ├── security-specialist-flutter.md
-│   ├── security-specialist-reactnative.md
-│   ├── stitch-converter-flutter.md       # NEW!
-│   ├── stitch-converter-reactnative.md   # NEW!
-│   ├── test-generator-flutter.md
-│   └── test-generator-reactnative.md
+~/.gemini/
+├── GEMINI.md                    # Global rules (auto-installed)
 │
-└── global_workflows/
-    ├── feature-flutter.md
-    ├── feature-reactnative.md
-    ├── review-flutter.md
-    ├── review-reactnative.md
-    ├── stitch-flutter.md        # NEW!
-    ├── stitch-reactnative.md    # NEW!
-    ├── test-flutter.md
-    └── test-reactnative.md
+└── antigravity/
+    ├── global_agents/
+    │   ├── a11y-enforcer-flutter.md
+    │   ├── a11y-enforcer-reactnative.md
+    │   ├── design-token-guardian-flutter.md
+    │   ├── design-token-guardian-reactnative.md
+    │   ├── grand-architect-flutter.md
+    │   ├── grand-architect-reactnative.md
+    │   ├── performance-enforcer-flutter.md
+    │   ├── performance-enforcer-reactnative.md
+    │   ├── performance-prophet-flutter.md
+    │   ├── performance-prophet-reactnative.md
+    │   ├── security-specialist-flutter.md
+    │   ├── security-specialist-reactnative.md
+    │   ├── stitch-converter-flutter.md
+    │   ├── stitch-converter-reactnative.md
+    │   ├── test-generator-flutter.md
+    │   └── test-generator-reactnative.md
+    │
+    └── global_workflows/
+        ├── feature-flutter.md
+        ├── feature-reactnative.md
+        ├── review-flutter.md
+        ├── review-reactnative.md
+        ├── stitch-flutter.md
+        ├── stitch-reactnative.md
+        ├── test-flutter.md
+        └── test-reactnative.md
 ```
 
 ### Benefits of Global Installation
@@ -169,6 +172,8 @@ Install agents and workflows for a **specific project only**. Best for team proj
 ```
 your-project/
 ├── .agent/
+│   ├── rules.md                  # Project rules (auto-installed)
+│   │
 │   ├── agents/
 │   │   ├── README.md
 │   │   ├── (8 Flutter agents)
