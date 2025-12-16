@@ -18,7 +18,7 @@ Convert Google Stitch HTML designs to production-ready Flutter and React Native 
 
 ## What is Google Stitch?
 
-[Google Stitch](https://labs.google.com/stitch) is an AI design tool from Google Labs that generates UI designs from text prompts or sketches.
+[Google Stitch](https://stitch.withgoogle.com/) is an AI design tool from Google that generates UI designs from text prompts or sketches.
 
 **Key Features:**
 - 🎨 Text-to-UI generation
@@ -72,7 +72,7 @@ cp -r ~/Downloads/stitch_my_project ./your_project/
 
 ### Step 1: Create Design in Google Stitch
 
-1. Go to [labs.google.com/stitch](https://labs.google.com/stitch)
+1. Go to [stitch.withgoogle.com](https://stitch.withgoogle.com/)
 2. Enter a prompt like:
    ```
    Create a habit tracker dashboard with:

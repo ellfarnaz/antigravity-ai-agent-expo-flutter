@@ -236,7 +236,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 - [Antigravity AI](https://antigravity.dev)
 - [Flutter](https://flutter.dev)
 - [React Native](https://reactnative.dev)
-- [Google Stitch](https://labs.google.com/stitch)
+- [Google Stitch](https://stitch.withgoogle.com/)
 
 ---
 
