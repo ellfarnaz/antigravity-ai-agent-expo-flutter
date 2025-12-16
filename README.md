@@ -233,7 +233,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🔗 Links
 
-- [Antigravity AI](https://antigravity.dev)
+- [Antigravity AI](https://antigravity.google/)
 - [Flutter](https://flutter.dev)
 - [React Native](https://reactnative.dev)
 - [Google Stitch](https://stitch.withgoogle.com/)
