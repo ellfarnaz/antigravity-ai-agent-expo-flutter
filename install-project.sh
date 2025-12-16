@@ -108,8 +108,9 @@ echo ""
 # Install rules
 if [ -f "$SOURCE_RULES_FILE" ]; then
     echo -e "${YELLOW}Installing rules...${NC}"
-    cp "$SOURCE_RULES_FILE" "$TARGET_AGENT_DIR/rules.md"
-    echo -e "  ${GREEN}✓${NC} rules.md"
+    mkdir -p "$TARGET_AGENT_DIR/rules"
+    cp "$SOURCE_RULES_FILE" "$TARGET_AGENT_DIR/rules/rules.md"
+    echo -e "  ${GREEN}✓${NC} rules/rules.md"
 fi
 
 echo ""

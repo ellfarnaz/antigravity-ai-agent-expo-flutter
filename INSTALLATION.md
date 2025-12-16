@@ -172,7 +172,8 @@ Install agents and workflows for a **specific project only**. Best for team proj
 ```
 your-project/
 ├── .agent/
-│   ├── rules.md                  # Project rules (auto-installed)
+│   ├── rules/
+│   │   └── rules.md              # Project rules (auto-installed)
 │   │
 │   ├── agents/
 │   │   ├── README.md
