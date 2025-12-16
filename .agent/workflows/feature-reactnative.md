@@ -152,7 +152,17 @@ Execute in parallel:
 - **Auto-fix suggestions**
 ```
 
-> **⚡ Performance:** All 4 quality checks run simultaneously (~3-4 min vs ~7-10 min sequential)
+**5. Runtime Performance** (@performance-enforcer-reactnative)
+```
+Execute in parallel:
+- Memory leak detection (useEffect cleanup)
+- Hermes optimization checks
+- FlashList/FlatList optimization
+- Reanimated usage validation
+- Bridge/JSI efficiency
+```
+
+> **⚡ Performance:** All 5 quality checks run simultaneously (~3-4 min vs ~10-12 min sequential)
 
 ### Phase 5: Final Review
 

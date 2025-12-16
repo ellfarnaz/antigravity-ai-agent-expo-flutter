@@ -84,7 +84,15 @@ Run ALL of these **simultaneously** (no dependencies):
 - **CI/CD integration** readiness
 - **Accessibility testing** coverage
 
-> **⚡ Performance:** All 5 agents run simultaneously (~4-6 min vs ~12-18 min sequential)
+#### 6. Runtime Performance (@performance-enforcer-reactnative)
+**Execute in parallel:**
+- Memory leak detection (useEffect cleanup)
+- Hermes optimization checks
+- FlashList/FlatList optimization
+- Reanimated usage validation
+- Bridge/JSI efficiency
+
+> **⚡ Performance:** All 6 agents run simultaneously (~4-6 min vs ~15-20 min sequential)
 
 ---
 

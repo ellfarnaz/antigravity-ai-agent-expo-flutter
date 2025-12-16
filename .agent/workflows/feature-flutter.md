@@ -152,7 +152,17 @@ Execute in parallel:
 - **Auto-fix suggestions**
 ```
 
-> **⚡ Performance:** All 4 quality checks run simultaneously (~3-5 min vs ~8-12 min sequential)
+**5. Runtime Performance** (@performance-enforcer-flutter)
+```
+Execute in parallel:
+- Memory leak detection
+- Dispose pattern validation
+- Widget rebuild optimization
+- Battery/power consumption
+- Network request efficiency
+```
+
+> **⚡ Performance:** All 5 quality checks run simultaneously (~3-5 min vs ~10-15 min sequential)
 
 ### Phase 5: Final Review
 

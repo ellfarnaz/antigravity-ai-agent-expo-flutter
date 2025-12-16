@@ -85,7 +85,15 @@ Run ALL of these **simultaneously** (no dependencies):
 - **CI/CD integration** readiness
 - **Accessibility testing** coverage
 
-> **⚡ Performance:** All 5 agents run simultaneously (~5-7 min vs ~15-20 min sequential)
+#### 6. Runtime Performance (@performance-enforcer-flutter)
+**Execute in parallel:**
+- Memory leak detection
+- Dispose pattern validation
+- Widget rebuild optimization
+- Battery/power consumption check
+- Network request efficiency
+
+> **⚡ Performance:** All 6 agents run simultaneously (~5-7 min vs ~18-25 min sequential)
 
 ---
 
