@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile - HabitFlow</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "surface-dark": "#1A2E23", // Slightly lighter than background-dark
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex justify-center">
+<div class="relative flex h-full w-full max-w-md flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3">
+<button class="flex size-10 items-center justify-center rounded-full active:bg-black/5 dark:active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Edit Profile</h1>
+<button class="flex h-10 items-center justify-center rounded-full px-2">
+<p class="text-primary text-base font-bold leading-normal tracking-wide opacity-50 cursor-not-allowed">Save</p>
+</button>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-24">
+<!-- Avatar Section -->
+<div class="flex flex-col items-center py-6 gap-4">
+<div class="relative group cursor-pointer">
+<div class="h-32 w-32 rounded-full border-4 border-background-light dark:border-background-dark shadow-lg overflow-hidden bg-slate-200 dark:bg-surface-dark">
+<img alt="Portrait of a young woman with natural lighting" class="h-full w-full object-cover" data-alt="Portrait of a young woman with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD65irIMdIl16Chb16SOwWX3ZG8tQX6mew6KLMi0e9m3DvcVYMHXMxQXWsgbC88bpOqy9M6S9UDC-hau2EXPswMcLnwUaMsTLaVH9IDz3m5dttleAc_CdRz9zi-UONR-ZcfH9_n7aRTZXiFJL5vy0lyTXXHaAN3qbrGQN3X6UguofOOw6ErrBu_iy77CGxH1_LH-7-payNNXSTje-oxz8W9Nrax6SZsa7S9WbMgEDVrqFCfSBr0kNs0wPqiBNM3x-I1l-UDOd9hcw"/>
+</div>
+<!-- Camera Badge -->
+<div class="absolute bottom-0 right-0 bg-primary text-background-dark p-2 rounded-full border-4 border-background-light dark:border-background-dark flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">photo_camera</span>
+</div>
+</div>
+<p class="text-primary font-semibold text-sm tracking-wide">Change Photo</p>
+</div>
+<!-- Public Info Section -->
+<section class="px-4 mt-2">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-4 px-2">Public Info</h3>
+<div class="flex flex-col gap-4">
+<!-- Name Input -->
+<label class="flex flex-col gap-1.5">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Name</span>
+<div class="relative flex items-center">
+<input class="w-full bg-white dark:bg-surface-dark text-slate-900 dark:text-white rounded-full border-none py-4 px-5 focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 font-medium transition-shadow shadow-sm" type="text" value="Jessica Parker"/>
+<span class="material-symbols-outlined absolute right-4 text-primary" style="font-size: 20px;">edit</span>
+</div>
+</label>
+<!-- Username Input -->
+<label class="flex flex-col gap-1.5">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Username</span>
+<div class="relative flex items-center">
+<span class="absolute left-5 text-slate-400 font-medium">@</span>
+<input class="w-full bg-white dark:bg-surface-dark text-slate-900 dark:text-white rounded-full border-none py-4 pl-10 pr-5 focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 font-medium transition-shadow shadow-sm" type="text" value="jess_flows"/>
+</div>
+</label>
+<!-- Bio Input -->
+<label class="flex flex-col gap-1.5">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Bio</span>
+<textarea class="w-full bg-white dark:bg-surface-dark text-slate-900 dark:text-white rounded-3xl border-none py-4 px-5 focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 font-medium transition-shadow shadow-sm resize-none" rows="3">Mindful living through daily habits 🌿 Yoga enthusiast and coffee lover.</textarea>
+</label>
+</div>
+</section>
+<!-- Personal Info Section -->
+<section class="px-4 mt-8">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-4 px-2">Personal Information</h3>
+<div class="flex flex-col gap-4">
+<!-- Email Input (Locked) -->
+<label class="flex flex-col gap-1.5 opacity-70">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Email</span>
+<div class="relative flex items-center">
+<input class="w-full bg-slate-100 dark:bg-surface-dark/50 text-slate-500 dark:text-slate-400 rounded-full border-none py-4 px-5 focus:ring-0 font-medium cursor-not-allowed" disabled="" type="email" value="jessica.parker@example.com"/>
+<span class="material-symbols-outlined absolute right-4 text-slate-400" style="font-size: 20px;">lock</span>
+</div>
+</label>
+<!-- Date of Birth -->
+<label class="flex flex-col gap-1.5">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Date of Birth</span>
+<div class="relative flex items-center group">
+<input class="w-full bg-white dark:bg-surface-dark text-slate-900 dark:text-white rounded-full border-none py-4 px-5 focus:ring-2 focus:ring-primary/50 font-medium appearance-none min-h-[56px] shadow-sm [&amp;::-webkit-calendar-picker-indicator]:opacity-0 z-10 bg-transparent" type="date" value="1998-05-15"/>
+<span class="material-symbols-outlined absolute right-4 text-slate-400 group-hover:text-primary transition-colors pointer-events-none" style="font-size: 22px;">calendar_month</span>
+</div>
+</label>
+<!-- Gender Selection -->
+<div class="flex flex-col gap-1.5">
+<span class="text-sm font-medium ml-2 text-slate-700 dark:text-slate-200">Gender</span>
+<div class="flex bg-white dark:bg-surface-dark p-1 rounded-full shadow-sm">
+<label class="flex-1 relative cursor-pointer group">
+<input class="peer sr-only" name="gender" type="radio" value="male"/>
+<div class="flex items-center justify-center py-3 rounded-full text-slate-500 dark:text-slate-400 font-medium text-sm transition-all duration-200 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-md hover:bg-slate-50 dark:hover:bg-white/5">
+                                    Male
+                                </div>
+</label>
+<label class="flex-1 relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="gender" type="radio" value="female"/>
+<div class="flex items-center justify-center py-3 rounded-full text-slate-500 dark:text-slate-400 font-medium text-sm transition-all duration-200 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-md hover:bg-slate-50 dark:hover:bg-white/5">
+                                    Female
+                                </div>
+</label>
+<label class="flex-1 relative cursor-pointer group">
+<input class="peer sr-only" name="gender" type="radio" value="other"/>
+<div class="flex items-center justify-center py-3 rounded-full text-slate-500 dark:text-slate-400 font-medium text-sm transition-all duration-200 peer-checked:bg-primary peer-checked:text-background-dark peer-checked:shadow-md hover:bg-slate-50 dark:hover:bg-white/5">
+                                    Other
+                                </div>
+</label>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Bottom Action -->
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-12">
+<button class="w-full relative group overflow-hidden rounded-full shadow-[0_0_20px_rgba(43,238,121,0.3)] hover:shadow-[0_0_30px_rgba(43,238,121,0.5)] transition-shadow duration-300">
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-emerald-400 transition-transform duration-300 group-hover:scale-105"></div>
+<div class="relative flex items-center justify-center gap-2 py-4 px-6">
+<span class="text-background-dark font-bold text-lg tracking-wide">Update Profile</span>
+<span class="material-symbols-outlined text-background-dark font-bold" style="font-size: 20px;">check</span>
+</div>
+</button>
+</div>
+</div>
+</body></html>

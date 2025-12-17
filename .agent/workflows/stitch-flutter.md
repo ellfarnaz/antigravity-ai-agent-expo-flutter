@@ -6,7 +6,7 @@ description: Converts Google Stitch HTML designs to Flutter widgets with theme e
 
 # Stitch to Flutter Conversion
 
-Converting: $ARGUMENTS
+> **🎨 Converting:** $ARGUMENTS
 
 ## Workflow Overview
 
@@ -30,11 +30,29 @@ This workflow converts Google Stitch HTML/TailwindCSS designs to production-read
 
 ---
 
+## Phase 1.5: Create Folder Structure
+
+> [!CAUTION]
+> **Create folders BEFORE generating any code!**
+
+```bash
+# Identify features from stitch_* screens
+# Then create structure:
+mkdir -p lib/features/{auth,home,profile,statistics,calendar}/{screens,widgets,models}
+mkdir -p lib/shared/{theme,widgets,utils,constants}
+mkdir -p lib/routes
+
+# Verify
+tree lib/ -d -L 3
+```
+
+---
+
 ## Phase 2: Code Generation
 
 1. **Generate Theme Files** (@stitch-converter-flutter)
    ```
-   lib/theme/
+   lib/shared/theme/
    ├── app_colors.dart
    ├── app_typography.dart
    ├── app_spacing.dart
@@ -50,7 +68,8 @@ This workflow converts Google Stitch HTML/TailwindCSS designs to production-read
 3. **Generate Reusable Components** (@stitch-converter-flutter)
    - Identify repeated patterns across screens
    - Extract as reusable widgets
-   - Generate widget files in `lib/widgets/`
+   - Generate feature-specific widgets in `lib/features/{feature}/widgets/`
+   - Generate shared widgets in `lib/shared/widgets/`
 
 4. **Generate Navigation** (@stitch-converter-flutter)
    - Create navigation structure
@@ -103,15 +122,18 @@ Execute in parallel:
 **Files Generated:**
 ```
 lib/
-├── screens/           # From Stitch screens
-├── widgets/           # Reusable components
-├── theme/             # Extracted tokens
-└── navigation/        # App router
+├── features/          # Feature-based organization
+│   ├── {feature}/
+│   │   ├── screens/   # Feature screens
+│   │   └── widgets/   # Feature-specific widgets
+├── shared/
+│   ├── theme/         # Extracted tokens
+│   └── widgets/       # Shared components
+└── routes/            # Navigation
 
 test/
-├── screens/           # Screen tests
-├── widgets/           # Component tests
-└── goldens/           # Visual tests
+├── features/          # Feature tests
+└── shared/            # Shared tests
 ```
 
 **Summary Report:**

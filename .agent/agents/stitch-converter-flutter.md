@@ -217,12 +217,45 @@ Row(
 )
 ```
 
+### Step 1.5: Create Folder Structure (FIRST!)
+
+> [!IMPORTANT]
+> **Create all folders BEFORE generating any files.**
+
+Based on screens identified in Step 1, create folder structure:
+
+```bash
+# Create feature folders (one per screen group)
+mkdir -p lib/features/auth/{screens,widgets,models}
+mkdir -p lib/features/home/{screens,widgets,models}
+mkdir -p lib/features/statistics/{screens,widgets,models}
+mkdir -p lib/features/calendar/{screens,widgets,models}
+mkdir -p lib/features/profile/{screens,widgets,models}
+
+# Create shared resources
+mkdir -p lib/shared/{theme,widgets,utils,constants}
+
+# Create routes
+mkdir -p lib/routes
+
+# Verify structure
+echo "✅ Folder structure created successfully"
+tree lib/ -d -L 3
+```
+
+**Dynamic folder creation based on Stitch:**
+- Count screens from stitch_* subfolders
+- Group by feature (auth screens together, home screens together, etc.)
+- Create only needed folders
+
+---
+
 ### Step 2: Extract Design Tokens
 
 From Stitch TailwindCSS config, extract:
 
 ```dart
-// lib/theme/app_colors.dart
+// lib/shared/theme/app_colors.dart
 class AppColors {
   // Primary from Stitch
   static const primary = Color(0xFF2BEE79);
@@ -235,7 +268,7 @@ class AppColors {
   static const surfaceDark = Color(0xFF1A2E22);
 }
 
-// lib/theme/app_typography.dart
+// lib/shared/theme/app_typography.dart
 class AppTypography {
   static const fontFamily = 'Spline Sans';
   
@@ -249,7 +282,7 @@ class AppTypography {
   );
 }
 
-// lib/theme/app_theme.dart
+// lib/shared/theme/app_theme.dart
 class AppTheme {
   static ThemeData get light => ThemeData(
     colorScheme: ColorScheme.light(
@@ -272,7 +305,7 @@ class AppTheme {
 ### Step 3: Generate Screen Widget
 
 ```dart
-// lib/screens/home_screen.dart
+// lib/features/home/screens/home_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/habit_card.dart';
 import '../widgets/progress_ring.dart';
@@ -310,7 +343,7 @@ class HomeScreen extends StatelessWidget {
 ### Step 4: Generate Reusable Components
 
 ```dart
-// lib/widgets/habit_card.dart
+// lib/features/home/widgets/habit_card.dart
 class HabitCard extends StatelessWidget {
   final String title;
   final String subtitle;
@@ -384,29 +417,73 @@ TextField(
 
 ```
 lib/
-├── screens/           # Generated screens
-│   ├── home_screen.dart
-│   ├── add_habit_screen.dart
-│   ├── calendar_screen.dart
-│   ├── profile_screen.dart
-│   └── statistics_screen.dart
+├── features/                    # Feature-based organization
+│   ├── auth/                   # Authentication feature
+│   │   ├── screens/
+│   │   │   ├── login_screen.dart
+│   │   │   └── register_screen.dart
+│   │   ├── widgets/
+│   │   │   └── login_form.dart
+│   │   └── models/
+│   │       └── user_model.dart
+│   │
+│   ├── home/                   # Home/Dashboard feature
+│   │   ├── screens/
+│   │   │   └── home_screen.dart
+│   │   ├── widgets/
+│   │   │   ├── habit_card.dart
+│   │   │   ├── progress_ring.dart
+│   │   │   └── stat_card.dart
+│   │   └── models/
+│   │       └── habit_model.dart
+│   │
+│   ├── statistics/            # Statistics feature
+│   │   ├── screens/
+│   │   │   └── statistics_screen.dart
+│   │   └── widgets/
+│   │       └── stats_chart.dart
+│   │
+│   ├── calendar/              # Calendar feature
+│   │   ├── screens/
+│   │   │   └── calendar_screen.dart
+│   │   └── widgets/
+│   │       └── calendar_heatmap.dart
+│   │
+│   └── profile/               # Profile feature
+│       ├── screens/
+│       │   ├── profile_screen.dart
+│       │   ├── edit_profile_screen.dart
+│       │   └── settings_screen.dart
+│       └── widgets/
+│           └── profile_avatar.dart
 │
-├── widgets/           # Reusable components
-│   ├── habit_card.dart
-│   ├── progress_ring.dart
-│   ├── stat_card.dart
-│   ├── filter_chip.dart
-│   └── bottom_nav.dart
+├── shared/                     # Shared across features
+│   ├── theme/                 # Extracted design tokens
+│   │   ├── app_colors.dart
+│   │   ├── app_typography.dart
+│   │   ├── app_spacing.dart
+│   │   └── app_theme.dart
+│   ├── widgets/               # Common reusable widgets
+│   │   ├── custom_button.dart
+│   │   ├── loading_indicator.dart
+│   │   └── empty_state.dart
+│   ├── utils/
+│   │   ├── formatters.dart
+│   │   └── validators.dart
+│   └── constants/
+│       └── app_constants.dart
 │
-├── theme/             # Extracted tokens
-│   ├── app_colors.dart
-│   ├── app_typography.dart
-│   ├── app_spacing.dart
-│   └── app_theme.dart
+├── routes/
+│   └── app_router.dart
 │
-└── navigation/
-    └── app_router.dart
+└── main.dart
 ```
+
+**Naming Convention:**
+- Feature folders: lowercase with underscore (e.g., `auth/`, `home/`, `profile/`)
+- Screen files: `*_screen.dart` 
+- Widget files: `*_widget.dart` or descriptive name (e.g., `habit_card.dart`)
+- Model files: `*_model.dart`
 
 ---
 
@@ -445,7 +522,7 @@ stitch_project/
 ### Generated Navigation (go_router)
 
 ```dart
-// lib/navigation/app_router.dart
+// lib/routes/app_router.dart
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import '../screens/screens.dart';
@@ -540,7 +617,7 @@ class AppRouter {
 ### Generated Main Shell (Bottom Navigation)
 
 ```dart
-// lib/widgets/main_shell.dart
+// lib/shared/widgets/main_shell.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../theme/app_colors.dart';
@@ -687,8 +764,8 @@ dependencies:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'navigation/app_router.dart';
-import 'theme/app_theme.dart';
+import 'routes/app_router.dart';
+import 'shared/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -720,8 +797,8 @@ class MyApp extends StatelessWidget {
 ### Screens Generated:
 | Screen | Source | Flutter File |
 |--------|--------|--------------|
-| Home Dashboard | home/dashboard/code.html | lib/screens/home_screen.dart |
-| Add Habit | add_new_habit/code.html | lib/screens/add_habit_screen.dart |
+| Home Dashboard | home/dashboard/code.html | lib/features/home/screens/home_screen.dart |
+| Add Habit | add_new_habit/code.html | lib/features/home/screens/add_habit_screen.dart |
 | ... | ... | ... |
 
 ### Widgets Created:

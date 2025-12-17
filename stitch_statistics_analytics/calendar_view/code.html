@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HabitFlow Calendar View</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112218",
+                        "surface-dark": "#1a3324",
+                        "accent-purple": "#a855f7",
+                        "accent-blue": "#3b82f6",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Header -->
+<header class="flex flex-col gap-2 p-4 pt-6 pb-2 shrink-0 z-10">
+<div class="flex items-center justify-between">
+<button class="text-white hover:bg-white/10 rounded-full p-2 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">chevron_left</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-white tracking-tight text-xl font-bold leading-tight">December 2024</h1>
+</div>
+<button class="text-white hover:bg-white/10 rounded-full p-2 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">chevron_right</span>
+</button>
+</div>
+<div class="flex justify-end px-2">
+<button class="text-primary text-sm font-bold tracking-wide uppercase">Today</button>
+</div>
+</header>
+<!-- Calendar Grid Section -->
+<div class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<!-- Weekday Headers -->
+<div class="grid grid-cols-7 mb-2 px-4">
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">S</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">M</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">T</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">W</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">T</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">F</div>
+<div class="text-[#92c9a8] text-xs font-semibold uppercase tracking-wider text-center py-2">S</div>
+</div>
+<!-- Days Grid -->
+<div class="grid grid-cols-7 gap-y-4 px-4 relative">
+<!-- Background Streak Lines (Visual only - absolute positioned behind grid cells if implemented dynamically, simpler here) -->
+<!-- Note: Complex streak lines are best done with SVG overlays in a real app. Here we simulate single cell states. -->
+<!-- Empty Days from prev month -->
+<div class="h-14"></div>
+<div class="h-14"></div>
+<div class="h-14"></div>
+<!-- Day 1 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white/40 text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">1</span>
+</button>
+<!-- Day 2 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white/40 text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">2</span>
+</button>
+<!-- Day 3 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">3</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-accent-purple"></div>
+</div>
+</button>
+<!-- Day 4 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">4</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-accent-blue"></div>
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+</div>
+</button>
+<!-- Day 5 (Perfect Day) -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<div class="absolute inset-x-0 top-4 h-0.5 bg-primary/30 -z-10 translate-y-[-50%] scale-x-150 origin-left"></div> <!-- Streak line start simulation -->
+<span class="text-background-dark text-sm font-bold h-8 w-8 flex items-center justify-center rounded-full bg-primary shadow-[0_0_15px_rgba(43,238,121,0.4)]">5</span>
+</button>
+<!-- Day 6 (Perfect Day - Connected) -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<div class="absolute inset-x-0 top-4 h-0.5 bg-primary/30 -z-10 w-[200%] right-full"></div> <!-- Streak line connection -->
+<span class="text-background-dark text-sm font-bold h-8 w-8 flex items-center justify-center rounded-full bg-primary shadow-[0_0_15px_rgba(43,238,121,0.4)]">6</span>
+</button>
+<!-- Day 7 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full border border-white/10">7</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-accent-purple"></div>
+<div class="w-1 h-1 rounded-full bg-accent-blue"></div>
+</div>
+</button>
+<!-- Day 8 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">8</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+</div>
+</button>
+<!-- Day 9 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">9</span>
+</button>
+<!-- Day 10 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">10</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-accent-purple"></div>
+</div>
+</button>
+<!-- Day 11 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">11</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-accent-blue"></div>
+</div>
+</button>
+<!-- Day 12 (Selected) -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-bold h-8 w-8 flex items-center justify-center rounded-full bg-white/20 ring-1 ring-white/50">12</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+<div class="w-1 h-1 rounded-full bg-accent-purple"></div>
+<div class="w-1 h-1 rounded-full bg-accent-blue"></div>
+</div>
+</button>
+<!-- Day 13 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">13</span>
+</button>
+<!-- Day 14 -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group">
+<span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">14</span>
+</button>
+<!-- Day 15-31 Placeholder (Simplified loop simulation) -->
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">15</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">16</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">17</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">18</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">19</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">20</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">21</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">22</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">23</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">24</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">25</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">26</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">27</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">28</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">29</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">30</span></button>
+<button class="h-14 w-full flex flex-col items-center justify-start gap-1 relative group"><span class="text-white text-sm font-medium h-8 w-8 flex items-center justify-center rounded-full">31</span></button>
+</div>
+<!-- Legend -->
+<div class="flex justify-center gap-3 px-4 pt-4 pb-8 flex-wrap">
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-surface-dark pl-2 pr-3 border border-white/5">
+<div class="w-2 h-2 rounded-full bg-accent-purple"></div>
+<p class="text-[#92c9a8] text-xs font-medium leading-normal">Morning</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-surface-dark pl-2 pr-3 border border-white/5">
+<div class="w-2 h-2 rounded-full bg-accent-blue"></div>
+<p class="text-[#92c9a8] text-xs font-medium leading-normal">Evening</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-surface-dark pl-2 pr-3 border border-white/5">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<p class="text-[#92c9a8] text-xs font-medium leading-normal">Anytime</p>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet / Day Detail Panel -->
+<div class="fixed bottom-0 left-0 w-full z-20 bg-surface-dark rounded-t-[2rem] shadow-[0_-5px_30px_rgba(0,0,0,0.5)] border-t border-white/5 transition-transform duration-300">
+<!-- Handle -->
+<div class="flex justify-center pt-3 pb-1 w-full">
+<div class="h-1 w-12 rounded-full bg-white/20"></div>
+</div>
+<!-- Header Content -->
+<div class="px-6 py-4 flex items-center justify-between border-b border-white/5">
+<div>
+<p class="text-white/60 text-sm font-medium">Monday</p>
+<h2 class="text-white text-2xl font-bold">December 12</h2>
+</div>
+<!-- Circular Progress Indicator -->
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="transform -rotate-90 w-full h-full">
+<circle class="text-white/10" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="25.12" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-[10px] font-bold text-white">80%</span>
+</div>
+</div>
+<!-- Habits List -->
+<div class="px-4 py-4 max-h-[40vh] overflow-y-auto space-y-3">
+<!-- Habit Item: Done -->
+<div class="flex items-center justify-between bg-background-dark/50 p-3 rounded-2xl border border-white/5 group active:bg-background-dark/80 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-accent-purple/20 flex items-center justify-center text-accent-purple">
+<span class="material-symbols-outlined text-[20px]">wb_sunny</span>
+</div>
+<div>
+<p class="text-white font-medium text-sm">Morning Meditation</p>
+<p class="text-white/40 text-xs">Morning • 10 mins</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-[16px] font-bold">check</span>
+</div>
+</div>
+<!-- Habit Item: Done -->
+<div class="flex items-center justify-between bg-background-dark/50 p-3 rounded-2xl border border-white/5 group active:bg-background-dark/80 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<p class="text-white font-medium text-sm">Read 10 Pages</p>
+<p class="text-white/40 text-xs">Evening • Education</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-[16px] font-bold">check</span>
+</div>
+</div>
+<!-- Habit Item: Missed -->
+<div class="flex items-center justify-between bg-background-dark/50 p-3 rounded-2xl border border-white/5 group opacity-80">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div>
+<p class="text-white font-medium text-sm">Workout</p>
+<p class="text-white/40 text-xs">Anytime • Health</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-primary transition-colors">
+<!-- Empty state for unchecked -->
+</div>
+</div>
+<!-- Habit Item: Done -->
+<div class="flex items-center justify-between bg-background-dark/50 p-3 rounded-2xl border border-white/5 group active:bg-background-dark/80 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div>
+<p class="text-white font-medium text-sm">Drink 2L Water</p>
+<p class="text-white/40 text-xs">Anytime • Health</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-[16px] font-bold">check</span>
+</div>
+</div>
+<!-- Habit Item: Done -->
+<div class="flex items-center justify-between bg-background-dark/50 p-3 rounded-2xl border border-white/5 group active:bg-background-dark/80 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<div>
+<p class="text-white font-medium text-sm">No Screens before bed</p>
+<p class="text-white/40 text-xs">Evening • Health</p>
+</div>
+</div>
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-background-dark text-[16px] font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Add Note Button -->
+<div class="p-6 pt-2 pb-8">
+<button class="w-full h-12 bg-white/5 hover:bg-white/10 active:bg-white/15 rounded-full flex items-center justify-center gap-2 transition-all border border-white/10 text-primary font-semibold">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span>Add Note</span>
+</button>
+</div>
+</div>
+</body></html>

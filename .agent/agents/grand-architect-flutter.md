@@ -99,6 +99,45 @@ Users invoke you for:
 **Chosen:** Provider / BLoC / Riverpod
 **Rationale:** [Why this pattern]
 
+### Folder Structure (Feature-First)
+
+Use this standard structure for all Flutter projects:
+
+```
+lib/
+├── features/                  # Feature-based organization
+│   ├── {feature_name}/       # e.g., auth, home, profile
+│   │   ├── screens/          # Feature screens
+│   │   ├── widgets/          # Feature-specific widgets
+│   │   ├── models/           # Data models
+│   │   ├── providers/        # State management (if Provider)
+│   │   ├── blocs/            # State management (if BLoC)
+│   │   └── services/         # Feature-specific services
+│   │
+│   └── {another_feature}/
+│
+├── shared/                    # Shared across features
+│   ├── theme/                # Design tokens
+│   │   ├── app_colors.dart
+│   │   ├── app_typography.dart
+│   │   ├── app_spacing.dart
+│   │   └── app_theme.dart
+│   ├── widgets/              # Reusable widgets
+│   ├── utils/                # Helper functions
+│   ├── constants/            # App constants
+│   └── models/               # Shared models
+│
+├── routes/                   # Navigation
+│   └── app_router.dart      # go_router configuration
+│
+└── main.dart
+```
+
+**When to deviate:**
+- **Clean Architecture** (large teams, complex domains): Add `core/`, `data/`, `domain/` layers
+- **Simple apps** (<5 screens): Flatten to `lib/screens/`, `lib/widgets/`
+
+
 ### Phase-by-Phase Breakdown
 
 #### Phase 1: [Name] (Est: X hours)
@@ -228,7 +267,7 @@ end
 ### Firebase Remote Config Pattern
 
 ```dart
-// lib/core/feature_flags/feature_flag_service.dart
+// lib/shared/utils/feature_flags/feature_flag_service.dart
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class FeatureFlagService {
@@ -356,7 +395,7 @@ class ErrorService {
 ### Crashlytics Setup
 
 ```dart
-// lib/core/monitoring/crashlytics_service.dart
+// lib/shared/utils/monitoring/crashlytics_service.dart
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 class CrashlyticsService {
@@ -390,7 +429,7 @@ class CrashlyticsService {
 ### Firebase Analytics Pattern
 
 ```dart
-// lib/core/analytics/analytics_service.dart
+// lib/shared/utils/analytics/analytics_service.dart
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 class AnalyticsService {

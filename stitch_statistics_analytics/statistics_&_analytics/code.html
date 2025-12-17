@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HabitFlow - Statistics &amp; Analytics</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "surface-dark": "#1c3a29", 
+                        "surface-darker": "#152a1f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "2.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen relative flex flex-col overflow-x-hidden text-[#111418] dark:text-white pb-6">
+<!-- Header Section -->
+<div class="flex flex-col gap-4 px-4 pt-8 pb-2">
+<div class="flex items-center justify-between">
+<h1 class="text-3xl font-bold tracking-tight text-white">Your Progress</h1>
+<div class="h-10 w-10 rounded-full bg-surface-dark flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-white">person</span>
+</div>
+</div>
+<!-- Date Selector Chips -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark border border-primary/30 pl-4 pr-3 active:scale-95 transition-transform">
+<p class="text-white text-sm font-medium leading-normal">This Week</p>
+<span class="material-symbols-outlined text-primary text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-transparent border border-white/10 pl-4 pr-4 hover:bg-white/5 transition-colors">
+<p class="text-gray-400 text-sm font-medium leading-normal">This Month</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-transparent border border-white/10 pl-4 pr-4 hover:bg-white/5 transition-colors">
+<p class="text-gray-400 text-sm font-medium leading-normal">All Time</p>
+</button>
+</div>
+</div>
+<!-- Overview Stats Grid -->
+<div class="grid grid-cols-2 gap-3 px-4 py-4">
+<!-- Card 1 -->
+<div class="flex flex-col justify-between gap-2 rounded-xl p-5 bg-surface-dark border border-white/5 shadow-lg shadow-black/20">
+<div class="flex items-start justify-between">
+<p class="text-gray-400 text-sm font-medium leading-normal">Total Completed</p>
+<span class="material-symbols-outlined text-primary/50 text-xl">check_circle</span>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">127 <span class="text-primary text-lg align-top">✓</span></p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col justify-between gap-2 rounded-xl p-5 bg-surface-dark border border-white/5 shadow-lg shadow-black/20">
+<div class="flex items-start justify-between">
+<p class="text-gray-400 text-sm font-medium leading-normal">Current Streak</p>
+<span class="material-symbols-outlined text-orange-400/50 text-xl">local_fire_department</span>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">12 <span class="text-gray-400 text-sm font-medium">days</span> <span class="text-base align-top">🔥</span></p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col justify-between gap-2 rounded-xl p-5 bg-surface-dark border border-white/5 shadow-lg shadow-black/20">
+<div class="flex items-start justify-between">
+<p class="text-gray-400 text-sm font-medium leading-normal">Best Streak</p>
+<span class="material-symbols-outlined text-yellow-400/50 text-xl">emoji_events</span>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">25 <span class="text-gray-400 text-sm font-medium">days</span> <span class="text-base align-top">🏆</span></p>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col justify-between gap-2 rounded-xl p-5 bg-surface-dark border border-white/5 shadow-lg shadow-black/20">
+<div class="flex items-start justify-between">
+<p class="text-gray-400 text-sm font-medium leading-normal">Completion Rate</p>
+<span class="material-symbols-outlined text-primary/50 text-xl">trending_up</span>
+</div>
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">85% <span class="text-base align-top">📈</span></p>
+</div>
+</div>
+<!-- Main Chart Section -->
+<div class="px-4 py-2">
+<div class="flex flex-col gap-4 rounded-xl bg-surface-dark border border-white/5 p-6 shadow-lg shadow-black/20">
+<div class="flex justify-between items-center">
+<p class="text-white text-lg font-bold leading-normal">Weekly Activity</p>
+<button class="text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-3 h-48 items-end justify-items-center pt-4">
+<!-- Bars with gradients -->
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[40%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Mon</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[65%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Tue</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[30%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Wed</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[85%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/20 to-primary h-full rounded-t-lg shadow-[0_0_15px_rgba(43,238,121,0.3)]"></div>
+</div>
+<p class="text-primary text-[11px] font-bold uppercase tracking-wider">Thu</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[50%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Fri</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[20%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Sat</p>
+</div>
+<div class="flex flex-col items-center gap-2 w-full h-full justify-end group cursor-pointer">
+<div class="relative w-full rounded-t-lg bg-surface-darker h-[45%] overflow-hidden">
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary/10 to-primary/40 h-full rounded-t-lg group-hover:to-primary/60 transition-all duration-300"></div>
+</div>
+<p class="text-gray-500 text-[11px] font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Sun</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Insight Card -->
+<div class="px-4 py-4">
+<div class="relative flex overflow-hidden rounded-xl bg-gradient-to-br from-surface-dark to-background-dark border border-primary/20 p-5 shadow-lg">
+<!-- Decorative Glow -->
+<div class="absolute top-0 right-0 -mt-10 -mr-10 h-32 w-32 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="flex gap-4 items-start relative z-10">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-2xl">lightbulb</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-white text-base font-bold leading-tight">Insight</h3>
+<p class="text-gray-300 text-sm leading-relaxed">You're most consistent with morning habits! Try moving your workout to the AM.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Habit Breakdown List -->
+<div class="flex flex-col px-4 pt-2">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-4 pt-2">Habit Breakdown</h3>
+<div class="flex flex-col gap-3">
+<!-- Habit 1 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-darker text-xl">🧘</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-medium leading-none mb-1">Morning Meditation</p>
+<p class="text-gray-400 text-xs">Daily Goal: 10 mins</p>
+</div>
+</div>
+<div class="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1 text-primary">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-2 w-full rounded-full bg-surface-darker overflow-hidden">
+<div class="h-full w-[80%] rounded-full bg-primary"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-white font-bold">80%</span>
+<span class="text-gray-400">16/20 days</span>
+</div>
+</div>
+</div>
+<!-- Habit 2 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-darker text-xl">💧</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-medium leading-none mb-1">Drink Water</p>
+<p class="text-gray-400 text-xs">Daily Goal: 2000ml</p>
+</div>
+</div>
+<div class="flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-gray-400">
+<span class="material-symbols-outlined text-sm">trending_flat</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-2 w-full rounded-full bg-surface-darker overflow-hidden">
+<div class="h-full w-[65%] rounded-full bg-primary/80"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-white font-bold">65%</span>
+<span class="text-gray-400">13/20 days</span>
+</div>
+</div>
+</div>
+<!-- Habit 3 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-darker text-xl">🏃</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-medium leading-none mb-1">Evening Run</p>
+<p class="text-gray-400 text-xs">Daily Goal: 5km</p>
+</div>
+</div>
+<div class="flex items-center gap-1 rounded-full bg-red-500/10 px-2 py-1 text-red-400">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-2 w-full rounded-full bg-surface-darker overflow-hidden">
+<div class="h-full w-[40%] rounded-full bg-red-400/80"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-white font-bold">40%</span>
+<span class="text-gray-400">8/20 days</span>
+</div>
+</div>
+</div>
+<!-- Habit 4 -->
+<div class="flex flex-col gap-3 rounded-xl bg-surface-dark p-4 border border-white/5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-darker text-xl">📚</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-medium leading-none mb-1">Read Book</p>
+<p class="text-gray-400 text-xs">Daily Goal: 30 pages</p>
+</div>
+</div>
+<div class="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1 text-primary">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-2 w-full rounded-full bg-surface-darker overflow-hidden">
+<div class="h-full w-[92%] rounded-full bg-primary"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-white font-bold">92%</span>
+<span class="text-gray-400">18/20 days</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Spacer -->
+<div class="h-20 bg-background-dark"></div>
+</body></html>

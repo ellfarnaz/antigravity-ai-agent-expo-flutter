@@ -6,7 +6,7 @@ description: Converts Google Stitch HTML designs to React Native components with
 
 # Stitch to React Native Conversion
 
-Converting: $ARGUMENTS
+> **🎨 Converting:** $ARGUMENTS
 
 ## Workflow Overview
 

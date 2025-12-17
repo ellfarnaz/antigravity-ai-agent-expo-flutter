@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Settings - HabitFlow</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "surface-dark": "#112218",
+                        "border-green": "#326747",
+                        "toggle-bg": "#234832",
+                        "text-secondary": "#92c9a8"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary selection:text-background-dark">
+<div class="relative flex h-full min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display pb-24 text-slate-900 dark:text-white">
+<!-- Header -->
+<div class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-transparent dark:border-border-green/30">
+<div class="flex items-center px-4 py-4 justify-between">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Notification Settings</h2>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex flex-col p-4 gap-6 max-w-md mx-auto w-full">
+<!-- Master Switch -->
+<div class="flex flex-col items-start justify-between gap-4 rounded-xl border border-gray-200 dark:border-border-green bg-white dark:bg-surface-dark p-5 shadow-sm">
+<div class="flex items-center justify-between w-full">
+<div class="flex flex-col gap-1">
+<p class="text-base font-bold leading-tight">Enable All Notifications</p>
+<p class="text-slate-500 dark:text-text-secondary text-sm font-normal">Master switch for all app alerts</p>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Habit Reminders Section -->
+<div class="flex flex-col gap-3">
+<h3 class="text-slate-900 dark:text-white tracking-tight text-xl font-bold px-1">Habit Reminders</h3>
+<div class="flex flex-col rounded-xl border border-gray-200 dark:border-border-green bg-white dark:bg-surface-dark overflow-hidden divide-y divide-gray-100 dark:divide-border-green/50 shadow-sm">
+<!-- Main Daily Reminders -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0 size-10">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-bold leading-tight">Daily Reminders</p>
+<p class="text-slate-500 dark:text-text-secondary text-xs">Get reminded to complete habits</p>
+</div>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Sub Options (Indented) -->
+<div class="bg-gray-50/50 dark:bg-black/20 pl-4">
+<!-- Morning -->
+<div class="flex items-center justify-between p-4 pl-12 border-b border-gray-100 dark:border-border-green/30 last:border-0">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-400" style="font-size: 20px;">wb_sunny</span>
+<p class="text-base font-normal">Morning Habits</p>
+</div>
+<label class="relative flex h-[24px] w-[40px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[20px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Evening -->
+<div class="flex items-center justify-between p-4 pl-12 border-b border-gray-100 dark:border-border-green/30 last:border-0">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-400" style="font-size: 20px;">dark_mode</span>
+<p class="text-base font-normal">Evening Habits</p>
+</div>
+<label class="relative flex h-[24px] w-[40px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[20px] rounded-full bg-white shadow-sm"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Anytime -->
+<div class="flex items-center justify-between p-4 pl-12 last:border-0">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400" style="font-size: 20px;">checklist</span>
+<p class="text-base font-normal">Anytime Habits</p>
+</div>
+<label class="relative flex h-[24px] w-[40px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[20px] rounded-full bg-white shadow-sm"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Engagement & System Section -->
+<div class="flex flex-col gap-3">
+<h3 class="text-slate-900 dark:text-white tracking-tight text-xl font-bold px-1">Engagement &amp; System</h3>
+<div class="flex flex-col rounded-xl border border-gray-200 dark:border-border-green bg-white dark:bg-surface-dark overflow-hidden divide-y divide-gray-100 dark:divide-border-green/50 shadow-sm">
+<!-- Streak Warnings -->
+<div class="flex items-center justify-between p-4 min-h-[72px]">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-[#FF5722]/20 text-[#FF5722] shrink-0 size-10">
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-medium">Streak Warnings</p>
+<p class="text-slate-500 dark:text-text-secondary text-xs">Don't break your streak!</p>
+</div>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Achievement Unlocks -->
+<div class="flex items-center justify-between p-4 min-h-[72px]">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-[#FFC107]/20 text-[#FFC107] shrink-0 size-10">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<p class="text-base font-medium">Achievement Unlocks</p>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Motivational Quotes -->
+<div class="flex items-center justify-between p-4 min-h-[72px]">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-[#00BCD4]/20 text-[#00BCD4] shrink-0 size-10">
+<span class="material-symbols-outlined">format_quote</span>
+</div>
+<p class="text-base font-medium">Motivational Quotes</p>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Sound Alerts -->
+<div class="flex items-center justify-between p-4 min-h-[72px]">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-gray-200 dark:bg-white/10 text-slate-700 dark:text-white shrink-0 size-10">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<p class="text-base font-medium">Sound Alerts</p>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input checked="" class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Quiet Hours Section -->
+<div class="flex flex-col gap-3">
+<h3 class="text-slate-900 dark:text-white tracking-tight text-xl font-bold px-1">Quiet Hours</h3>
+<div class="flex flex-col rounded-xl border border-gray-200 dark:border-border-green bg-white dark:bg-surface-dark overflow-hidden divide-y divide-gray-100 dark:divide-border-green/50 shadow-sm">
+<!-- Enable Toggle -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-[#9C27B0]/20 text-[#9C27B0] shrink-0 size-10">
+<span class="material-symbols-outlined">do_not_disturb_on</span>
+</div>
+<div class="flex flex-col">
+<p class="text-base font-medium">Enable Quiet Hours</p>
+<p class="text-slate-500 dark:text-text-secondary text-xs">Mute notifications during sleep</p>
+</div>
+</div>
+<label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-gray-300 dark:bg-toggle-bg p-0.5 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<div class="h-full w-[27px] rounded-full bg-white shadow-md"></div>
+<input class="invisible absolute" type="checkbox"/>
+</label>
+</div>
+<!-- Time Pickers -->
+<div class="flex items-center justify-between p-4 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer transition-colors">
+<p class="text-base font-normal">Start Time</p>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-black/40 text-sm font-semibold text-primary">
+                            10:00 PM
+                        </div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer transition-colors">
+<p class="text-base font-normal">End Time</p>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-black/40 text-sm font-semibold text-primary">
+                            07:00 AM
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-12">
+<button class="w-full max-w-md mx-auto flex items-center justify-center rounded-full bg-primary h-14 shadow-[0_0_20px_rgba(43,238,121,0.3)] active:scale-[0.98] transition-all">
+<span class="text-background-dark text-lg font-bold tracking-tight">Save Changes</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HabitFlow - Add New Habit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "primary-dark": "#24ca66",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "surface-dark": "#1a2c22",
+                        "text-secondary": "#92c9a8",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI in lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Smooth bounce animation for interactions */
+        .btn-bounce:active {
+            transform: scale(0.95);
+        }
+        
+        /* Custom gradient for primary button */
+        .gradient-btn {
+            background: linear-gradient(135deg, #2bee79 0%, #24ca66 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary selection:text-background-dark">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto overflow-x-hidden shadow-2xl">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 flex flex-col gap-2 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 border-b border-gray-200/10 dark:border-white/5">
+<div class="flex items-center h-12 justify-between">
+<button class="flex size-10 items-center justify-center rounded-full text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors btn-bounce">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<div class="flex items-center justify-end">
+<button class="text-gray-400 dark:text-text-secondary text-base font-bold leading-normal tracking-[0.015em] shrink-0 opacity-50 cursor-not-allowed">Save</button>
+</div>
+</div>
+<p class="text-black dark:text-white tracking-tight text-[28px] font-bold leading-tight mt-2">Create New Habit</p>
+</header>
+<!-- Main Form Content -->
+<main class="flex-1 flex flex-col px-4 pb-32 pt-4 gap-8">
+<!-- Section 1: Habit Name & Category -->
+<div class="flex flex-col gap-6">
+<!-- Name Input -->
+<div class="relative w-full">
+<label class="block text-sm font-medium text-gray-500 dark:text-text-secondary mb-2 pl-1">Habit Name</label>
+<div class="relative group">
+<input class="form-input w-full rounded-2xl bg-white dark:bg-surface-dark border-transparent focus:border-primary focus:ring-0 text-black dark:text-white h-16 px-4 pr-16 text-lg font-medium placeholder:text-gray-400 dark:placeholder:text-gray-600 transition-all shadow-sm" placeholder="e.g., Morning run" type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-400 dark:text-gray-500">
+                            0/50
+                        </div>
+</div>
+</div>
+<!-- Category Picker -->
+<div>
+<div class="flex justify-between items-center mb-3 px-1">
+<label class="text-sm font-medium text-gray-500 dark:text-text-secondary">Category</label>
+<button class="text-primary text-xs font-bold">See all</button>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
+<!-- Active Item -->
+<button class="flex flex-col items-center gap-1 shrink-0 btn-bounce">
+<div class="size-14 rounded-full bg-primary flex items-center justify-center text-2xl border-4 border-primary/20 shadow-[0_0_15px_rgba(43,238,121,0.3)]">
+                                💪
+                            </div>
+<span class="text-xs font-medium text-primary">Fitness</span>
+</button>
+<!-- Inactive Items -->
+<button class="flex flex-col items-center gap-1 shrink-0 group btn-bounce">
+<div class="size-14 rounded-full bg-white dark:bg-surface-dark group-hover:bg-gray-50 dark:group-hover:bg-[#25382e] flex items-center justify-center text-2xl transition-colors border border-gray-100 dark:border-white/5">
+                                📚
+                            </div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Learning</span>
+</button>
+<button class="flex flex-col items-center gap-1 shrink-0 group btn-bounce">
+<div class="size-14 rounded-full bg-white dark:bg-surface-dark group-hover:bg-gray-50 dark:group-hover:bg-[#25382e] flex items-center justify-center text-2xl transition-colors border border-gray-100 dark:border-white/5">
+                                🧘
+                            </div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Wellness</span>
+</button>
+<button class="flex flex-col items-center gap-1 shrink-0 group btn-bounce">
+<div class="size-14 rounded-full bg-white dark:bg-surface-dark group-hover:bg-gray-50 dark:group-hover:bg-[#25382e] flex items-center justify-center text-2xl transition-colors border border-gray-100 dark:border-white/5">
+                                💼
+                            </div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Work</span>
+</button>
+<button class="flex flex-col items-center gap-1 shrink-0 group btn-bounce">
+<div class="size-14 rounded-full bg-white dark:bg-surface-dark group-hover:bg-gray-50 dark:group-hover:bg-[#25382e] flex items-center justify-center text-2xl transition-colors border border-gray-100 dark:border-white/5">
+                                🎨
+                            </div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Creative</span>
+</button>
+<button class="flex flex-col items-center gap-1 shrink-0 group btn-bounce">
+<div class="size-14 rounded-full bg-white dark:bg-surface-dark group-hover:bg-gray-50 dark:group-hover:bg-[#25382e] flex items-center justify-center text-2xl transition-colors border border-gray-100 dark:border-white/5">
+                                🍎
+                            </div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Health</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-px bg-gray-200/50 dark:bg-white/5 w-full"></div>
+<!-- Section 2: Frequency -->
+<div class="flex flex-col gap-5">
+<h3 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Goal Frequency</h3>
+<!-- Frequency Tabs -->
+<div class="bg-white dark:bg-surface-dark p-1 rounded-full flex relative border border-gray-100 dark:border-white/5">
+<button class="flex-1 py-2.5 rounded-full text-sm font-bold text-background-dark bg-primary shadow-sm text-center transition-all">Daily</button>
+<button class="flex-1 py-2.5 rounded-full text-sm font-medium text-gray-500 dark:text-text-secondary text-center hover:text-black dark:hover:text-white transition-all">Weekly</button>
+<button class="flex-1 py-2.5 rounded-full text-sm font-medium text-gray-500 dark:text-text-secondary text-center hover:text-black dark:hover:text-white transition-all">Custom</button>
+</div>
+<!-- Days Selector -->
+<div class="flex justify-between items-center gap-2">
+<button class="size-10 rounded-full bg-primary text-background-dark font-bold text-sm flex items-center justify-center shadow-[0_0_10px_rgba(43,238,121,0.2)] btn-bounce">S</button>
+<button class="size-10 rounded-full bg-primary text-background-dark font-bold text-sm flex items-center justify-center shadow-[0_0_10px_rgba(43,238,121,0.2)] btn-bounce">M</button>
+<button class="size-10 rounded-full bg-primary text-background-dark font-bold text-sm flex items-center justify-center shadow-[0_0_10px_rgba(43,238,121,0.2)] btn-bounce">T</button>
+<button class="size-10 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-white/5 text-gray-400 dark:text-gray-500 font-medium text-sm flex items-center justify-center hover:bg-gray-50 dark:hover:bg-[#25382e] transition-colors btn-bounce">W</button>
+<button class="size-10 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-white/5 text-gray-400 dark:text-gray-500 font-medium text-sm flex items-center justify-center hover:bg-gray-50 dark:hover:bg-[#25382e] transition-colors btn-bounce">T</button>
+<button class="size-10 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-white/5 text-gray-400 dark:text-gray-500 font-medium text-sm flex items-center justify-center hover:bg-gray-50 dark:hover:bg-[#25382e] transition-colors btn-bounce">F</button>
+<button class="size-10 rounded-full bg-primary text-background-dark font-bold text-sm flex items-center justify-center shadow-[0_0_10px_rgba(43,238,121,0.2)] btn-bounce">S</button>
+</div>
+<!-- Quick Select Chips -->
+<div class="flex gap-2 justify-center">
+<button class="px-3 py-1 rounded-full text-xs font-medium text-primary bg-primary/10 border border-primary/20">Everyday</button>
+<button class="px-3 py-1 rounded-full text-xs font-medium text-gray-500 dark:text-text-secondary hover:bg-white dark:hover:bg-surface-dark transition-colors">Weekdays</button>
+<button class="px-3 py-1 rounded-full text-xs font-medium text-gray-500 dark:text-text-secondary hover:bg-white dark:hover:bg-surface-dark transition-colors">Weekends</button>
+</div>
+</div>
+<div class="h-px bg-gray-200/50 dark:bg-white/5 w-full"></div>
+<!-- Section 3: Reminder -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-white dark:bg-surface-dark flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex flex-col">
+<span class="text-black dark:text-white font-bold">Reminder</span>
+<span class="text-xs text-gray-500 dark:text-text-secondary">Get notified to complete your habit</span>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-7 bg-gray-200 peer-focus:outline-none dark:bg-surface-dark rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Time Picker (Conditional display logic simulated visually) -->
+<div class="flex items-center justify-between bg-white dark:bg-surface-dark p-4 rounded-2xl border border-gray-200 dark:border-white/5">
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Time</span>
+<button class="bg-background-light dark:bg-background-dark px-4 py-2 rounded-lg text-black dark:text-white font-bold text-lg flex items-center gap-1 hover:text-primary transition-colors">
+                        08:00 AM
+                        <span class="material-symbols-outlined text-sm opacity-50">expand_more</span>
+</button>
+</div>
+</div>
+<div class="h-px bg-gray-200/50 dark:bg-white/5 w-full"></div>
+<!-- Section 4: Notes -->
+<div class="flex flex-col gap-2">
+<label class="block text-sm font-medium text-gray-500 dark:text-text-secondary pl-1">Notes <span class="text-gray-600 dark:text-gray-600 font-normal">(Optional)</span></label>
+<textarea class="form-textarea w-full rounded-2xl bg-white dark:bg-surface-dark border-transparent focus:border-primary focus:ring-0 text-black dark:text-white p-4 text-base font-normal placeholder:text-gray-400 dark:placeholder:text-gray-600 resize-none min-h-[120px]" placeholder="Why is this habit important to you?"></textarea>
+</div>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-40 max-w-md mx-auto left-1/2 -translate-x-1/2">
+<div class="flex flex-col gap-3">
+<button class="w-full h-14 rounded-full gradient-btn text-background-dark text-lg font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 btn-bounce">
+<span class="material-symbols-outlined">add</span>
+                    Create Habit
+                </button>
+<button class="w-full py-2 text-sm font-medium text-gray-500 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors">
+                    Cancel
+                </button>
+</div>
+</div>
+</div>
+</body></html>

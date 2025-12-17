@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Set Your First Habit</title>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "card-dark": "#1a2c22",
+                        "card-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px -5px rgba(43, 238, 121, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-white transition-colors duration-200">
+<div class="relative min-h-screen flex flex-col w-full max-w-md mx-auto overflow-hidden">
+<header class="flex items-center justify-between p-6">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<div class="h-10 flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-white/10"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-white/10"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-glow ring-4 ring-primary/20"></div>
+</div>
+<div class="w-10"></div>
+</header>
+<main class="flex-1 px-6 flex flex-col gap-8 pt-2">
+<div class="space-y-3">
+<h1 class="text-3xl md:text-4xl font-bold leading-tight">
+                    Let's Set Your<br/>
+<span class="text-primary drop-shadow-[0_0_15px_rgba(43,238,121,0.3)]">First Habit</span>
+</h1>
+<p class="text-gray-500 dark:text-gray-400 text-lg leading-relaxed font-body">
+                    What's one positive habit you want to start today?
+                </p>
+</div>
+<form class="flex flex-col gap-6" onsubmit="event.preventDefault()">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 ml-1">Habit Name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">edit</span>
+</div>
+<input class="w-full bg-card-light dark:bg-card-dark text-slate-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 rounded-2xl py-4 pl-12 pr-4 border-0 ring-1 ring-gray-200 dark:ring-white/5 focus:ring-2 focus:ring-primary shadow-sm transition-all" placeholder="e.g., Morning Meditation" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 ml-1">Category</label>
+<div class="grid grid-cols-4 gap-3">
+<button class="aspect-square rounded-2xl bg-primary text-background-dark flex flex-col items-center justify-center gap-1 shadow-glow ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark transition-all" type="button">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">water_drop</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">fitness_center</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">bedtime</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">work</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">nutrition</span>
+</button>
+<button class="aspect-square rounded-2xl bg-card-light dark:bg-card-dark hover:bg-gray-50 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400 flex flex-col items-center justify-center gap-1 ring-1 ring-gray-200 dark:ring-white/5 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 ml-1">Daily Reminder</label>
+<div class="bg-card-light dark:bg-card-dark p-2 rounded-2xl ring-1 ring-gray-200 dark:ring-white/5 flex items-center justify-between pl-4 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">alarm</span>
+</div>
+<span class="font-medium text-slate-700 dark:text-gray-200">Time</span>
+</div>
+<div class="flex bg-background-light dark:bg-background-dark rounded-xl p-1 border border-gray-100 dark:border-white/5">
+<input class="bg-transparent border-0 focus:ring-0 font-bold text-lg p-1 text-slate-800 dark:text-white cursor-pointer" type="time" value="08:00"/>
+</div>
+</div>
+</div>
+</form>
+<div class="flex-1"></div>
+<div class="pb-8 space-y-4 mt-8">
+<button class="w-full h-14 bg-gradient-to-r from-[#2bee79] to-[#25cb68] hover:from-[#35ff85] hover:to-[#2ce075] text-[#102217] text-lg font-bold rounded-2xl shadow-glow transform transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                    Create My First Habit
+                    <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</button>
+<div class="text-center">
+<a class="text-sm font-medium text-gray-400 hover:text-slate-800 dark:hover:text-white transition-colors" href="#">Skip for now</a>
+</div>
+</div>
+</main>
+</div>
+</body></html>

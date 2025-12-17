@@ -2,39 +2,186 @@
 name: feature-reactnative
 description: Implements new React Native/Expo features using multi-agent orchestration workflow with enterprise-grade security, performance, and testing
 ---
-<!-- 🌟 SenaiVerse - Claude Code Agent System v2.0 | React Native/Expo Edition | Enterprise -->
+<!-- 🌟 SenaiVerse - Claude Code Agent System v2.2 | React Native/Expo Edition | Enterprise -->
 
 # Feature Implementation Workflow (React Native/Expo)
 
-Implements: $ARGUMENTS
+> **📋 Feature Request:** $ARGUMENTS
 
 ## Execution Plan
 
 Execute the following multi-agent workflow for React Native/Expo development:
 
-### Phase 0: Design Source Detection (Optional)
+---
 
-**Check for Google Stitch Designs:**
-- Look for folders: `stitch_*`, `design/`, `ui/`
-- Look for files: `*.html` with TailwindCSS
+### Phase 0: Stitch Design Discovery (MANDATORY when stitch_* exists)
 
-**If Stitch designs found:**
-1. Invoke @stitch-converter-reactnative
-2. Extract design tokens (colors, typography, spacing)
-3. Generate theme files and base components
-4. Use as foundation for implementation
+> [!IMPORTANT]
+> When a `stitch_*` folder is detected, this phase is **MANDATORY** and must be completed before any code generation.
 
-**If no Stitch designs:**
-- Continue with AI-generated implementation (Phase 1)
+**Step 0.1: Folder Scanning**
+
+1. Search for `stitch_*` folders in project root
+2. For each folder found, list ALL subfolders (these represent screens)
+3. For each screen folder, verify:
+   - `code.html` exists (HTML + TailwindCSS design)
+   - `screen.png` exists (visual reference)
+4. Count total screens and document any missing files
+
+**Step 0.2: Screen Inventory** (INVOKE: @grand-architect-reactnative)
+
+Create a detailed inventory table:
+
+```markdown
+| # | Folder Name | Screen Name | Screen Type | React Native Output | Navigation |
+|---|-------------|-------------|-------------|---------------------|------------|
+| 1 | home/dashboard | Dashboard | Tab | app/(app)/index.tsx | Bottom Tabs |
+| 2 | add_new_habit | Add Habit | Modal | app/add-habit.tsx | Stack Push |
+| 3 | calendar_view | Calendar | Tab | app/(app)/calendar.tsx | Bottom Tabs |
+| ... | ... | ... | ... | ... | ... |
+```
+
+**Screen Type Classification (Expo Router):**
+- `Tab` → Bottom tab screens → `app/(app)/[name].tsx`
+- `Modal` → Full-screen modals → `app/[name].tsx` (root level)
+- `Detail` → Dynamic routes → `app/[name]/[id].tsx`
+- `Auth` → Auth group → `app/(auth)/[name].tsx`
+- `Form` → Settings screens → `app/settings/[name].tsx`
+
+**Step 0.3: Design Token Extraction** (INVOKE: @stitch-converter-reactnative)
+
+Parse ALL `code.html` files and extract:
+
+```yaml
+Colors:
+  Primary: # (main accent color)
+  Background: # (light & dark)
+  Surface: # (cards, containers)
+  Text: # (primary, secondary)
+  Accents: # (additional colors)
+
+Typography:
+  Font Family: # (primary, secondary)
+  Weights: # (300, 400, 500, 600, 700)
+  Sizes: # (text scale from design)
+
+Spacing:
+  Scale: # (4, 8, 12, 16, 20, 24, 32, 40, 48)
+  
+Border Radius:
+  Variants: # (sm, md, lg, xl, full)
+
+Shadows:
+  Presets: # (sm, md, lg, glow)
+
+Animation:
+  Durations: # (fast, normal, slow)
+```
+
+**Step 0.4: Component Identification** (INVOKE: @stitch-converter-reactnative)
+
+Identify reusable UI patterns across screens:
+
+```markdown
+| Component | Used In | Description | Component Name |
+|-----------|---------|-------------|----------------|
+| Habit Card | Dashboard, Calendar | Card with checkbox, emoji, streak | HabitCard.tsx |
+| Progress Ring | Dashboard, Stats | Circular progress indicator | ProgressRing.tsx |
+| Stat Card | Dashboard, Profile | Icon + label + value | StatCard.tsx |
+| ... | ... | ... | ... |
+```
+
+**Step 0.5: Navigation Structure** (INVOKE: @grand-architect-reactnative)
+
+Define Expo Router navigation architecture:
+
+```markdown
+Navigation Type: Expo Router (file-based)
+
+File Structure:
+app/
+├── _layout.tsx           # Root Stack
+├── (auth)/               # Auth group
+│   ├── _layout.tsx
+│   ├── login.tsx
+│   └── register.tsx
+├── (app)/                # Main app group (with tabs)
+│   ├── _layout.tsx       # Tab Navigator
+│   ├── index.tsx         # Home/Dashboard
+│   ├── stats.tsx         # Statistics
+│   ├── calendar.tsx      # Calendar
+│   └── profile.tsx       # Profile
+├── add-habit.tsx         # Modal (root level)
+├── habit/[id].tsx        # Dynamic route
+├── settings/
+│   ├── edit-profile.tsx
+│   ├── change-password.tsx
+│   └── notifications.tsx
+└── onboarding/           # Onboarding flow
+    └── index.tsx
+```
+
+---
+
+### Phase 0.6: Artifact Generation (REQUIRED)
+
+> [!CAUTION]
+> Do NOT proceed to code generation without creating these artifacts. This ensures proper tracking and user visibility.
+
+**Create task.md:**
+
+```markdown
+# [Feature Name] - Stitch to React Native Conversion
+
+## Screens to Generate (X total)
+- [ ] Screen 1: folder_name → app/(app)/screen.tsx
+- [ ] Screen 2: folder_name → app/(auth)/screen.tsx
+...
+
+## Components to Extract (X total)
+- [ ] Component 1: ComponentName.tsx
+- [ ] Component 2: ComponentName.tsx
+...
+
+## Theme Files
+- [ ] constants/Colors.ts
+- [ ] constants/Typography.ts
+- [ ] constants/Spacing.ts
+- [ ] constants/Theme.ts
+
+## Navigation Setup
+- [ ] app/_layout.tsx (root)
+- [ ] app/(app)/_layout.tsx (tabs)
+- [ ] app/(auth)/_layout.tsx (auth)
+
+## Quality Assurance
+- [ ] Accessibility check (@a11y-enforcer-reactnative)
+- [ ] Design token compliance (@design-token-guardian-reactnative)
+- [ ] Performance check (@performance-prophet-reactnative)
+
+## Tests
+- [ ] Component tests (React Native Testing Library)
+- [ ] Unit tests (Jest)
+- [ ] E2E tests (Detox) - if applicable
+
+## Verification
+- [ ] npm install / yarn install
+- [ ] npm run lint (0 warnings)
+- [ ] npm test (all passing)
+```
+
+**Create implementation_plan.md:**
+
+Document detailed implementation strategy with file-by-file breakdown.
 
 ---
 
 ### Phase 1: Planning & Analysis
 
-1. **Grand Architect Analysis** (@grand-architect-reactnative)
+1. **Grand Architect Analysis** (INVOKE: @grand-architect-reactnative)
    - Break down the feature into implementation steps
    - Analyze architectural impact on component tree
-   - Identify affected files (src/ structure)
+   - Identify affected files (src/ or app/ structure)
    - Determine state management approach (Redux/Context/Zustand)
    - Assess complexity and risks
    - **Plan CI/CD integration** (GitHub Actions, EAS Build)
@@ -51,7 +198,7 @@ Execute the following multi-agent workflow for React Native/Expo development:
 
 ### Phase 2: Security & Architecture Review
 
-1. **Security Audit** (@security-specialist-reactnative)
+1. **Security Audit** (INVOKE: @security-specialist-reactnative)
    If feature involves user data, auth, payments, or sensitive operations:
    - **OWASP Mobile Top 10** compliance check
    - Review AsyncStorage vs SecureStore usage
@@ -78,19 +225,33 @@ Execute the following multi-agent workflow for React Native/Expo development:
    - Check Expo SDK compatibility
    - **Enable Hermes** if not already (significant performance boost)
 
-2. **Create Feature Structure**
-   - Generate feature folder structure (components, hooks, screens)
-   - Create components, screens, hooks
-   - Follow project conventions from CLAUDE.md
+2. **Generate Theme Files** (INVOKE: @stitch-converter-reactnative)
+   ```
+   constants/
+   ├── Colors.ts
+   ├── Typography.ts
+   ├── Spacing.ts
+   └── Theme.ts
+   ```
 
-3. **Write Core Logic**
-   - Implement business logic
-   - Add proper TypeScript types
-   - Follow design system tokens (no hardcoded values)
+3. **Generate Screen Components** (INVOKE: @stitch-converter-reactnative)
+   - Parse HTML structure for each screen
+   - Convert to React Native components
+   - Apply extracted theme tokens
+   - Use StyleSheet.create with theme constants
+   - **Update task.md** as each screen is completed
+
+4. **Generate Reusable Components** (INVOKE: @stitch-converter-reactnative)
+   - Extract common patterns as components
+   - Create components/ folder
    - Use React.memo where appropriate
-   - **Optimize for Hermes** bytecode compilation
 
-4. **Platform-Specific Implementation** (if needed)
+5. **Create Navigation Structure** (INVOKE: @stitch-converter-reactnative)
+   - Generate Expo Router file structure
+   - Create layout files with proper navigators
+   - Configure tab bar and stack navigators
+
+6. **Platform-Specific Implementation** (if needed)
    - Implement native modules for iOS/Android
    - Handle Platform.OS specific code
    - Update app.json / expo config if needed
@@ -102,7 +263,7 @@ Execute the following multi-agent workflow for React Native/Expo development:
 
 Run ALL quality checks **in parallel** after implementation:
 
-**1. Generate Tests** (@test-generator-reactnative)
+**1. Generate Tests** (INVOKE: @test-generator-reactnative)
 ```
 Execute in parallel:
 - Component tests (React Native Testing Library)
@@ -115,7 +276,7 @@ Execute in parallel:
 - **Snapshot tests**
 ```
 
-**2. Accessibility Check** (@a11y-enforcer-reactnative)
+**2. Accessibility Check** (INVOKE: @a11y-enforcer-reactnative)
 ```
 Execute in parallel:
 - Validate accessibility props
@@ -127,7 +288,7 @@ Execute in parallel:
 - **Dark mode accessibility**
 ```
 
-**3. Performance Check** (@performance-prophet-reactnative)
+**3. Performance Check** (INVOKE: @performance-prophet-reactnative)
 ```
 Execute in parallel:
 - Check for unnecessary re-renders
@@ -141,7 +302,7 @@ Execute in parallel:
 - **Network waterfall detection**
 ```
 
-**4. Design System Compliance** (@design-token-guardian-reactnative)
+**4. Design System Compliance** (INVOKE: @design-token-guardian-reactnative)
 ```
 Execute in parallel:
 - Verify theme/design token usage
@@ -152,7 +313,7 @@ Execute in parallel:
 - **Auto-fix suggestions**
 ```
 
-**5. Runtime Performance** (@performance-enforcer-reactnative)
+**5. Runtime Performance** (INVOKE: @performance-enforcer-reactnative)
 ```
 Execute in parallel:
 - Memory leak detection (useEffect cleanup)
@@ -189,9 +350,34 @@ Execute in parallel:
    - Configure EAS Build
    - Setup automated testing
 
+5. **Finalize Artifacts**
+   - Mark all items complete in task.md
+   - Update implementation_plan.md if approach changed
+   - Create walkthrough.md with screenshots/recordings
+
+---
+
+## Agent Orchestration Summary
+
+```mermaid
+flowchart TD
+    A[/feature-reactnative] --> B{stitch_* exists?}
+    B -->|Yes| C["@grand-architect-reactnative<br/>@stitch-converter-reactnative"]
+    C --> D[Create task.md & plan]
+    B -->|No| E[Phase 1: Planning]
+    D --> E
+    E --> F["@security-specialist-reactnative"]
+    F --> G[Implementation]
+    G --> H["QA (Parallel):<br/>5 agents simultaneously"]
+    H --> I[Final Review]
+```
+
+---
+
 ## Success Criteria
 
 ✅ Feature implemented and working on iOS & Android
+✅ All screens from Stitch folder converted
 ✅ Unit + component tests passing
 ✅ Accessibility compliant (accessibilityLabel, WCAG 2.2)
 ✅ No security vulnerabilities (OWASP compliant)
@@ -200,9 +386,12 @@ Execute in parallel:
 ✅ Bundle size within budget
 ✅ TypeScript: No errors
 ✅ Lint: Clean
+✅ task.md fully marked complete
 ✅ **Hermes enabled**
 ✅ **CI/CD pipeline configured**
 ✅ **Error tracking enabled** (Sentry)
+
+---
 
 ## Commands to Run
 
@@ -240,12 +429,15 @@ npx react-native info | grep Hermes
 npx react-native-bundle-visualizer
 ```
 
+---
+
 ## Report
 
 Provide summary:
-- Files created/modified (src/ paths)
+- Stitch screens converted (X of Y)
+- Files created/modified (app/ paths)
 - package.json dependencies added
-- Tests added (\_\_tests\_\_ paths)
+- Tests added (__tests__/ paths)
 - Platform-specific changes (iOS/Android)
 - Bundle size impact (+X KB)
 - Performance validation (re-renders, memoization)
@@ -256,4 +448,4 @@ Provide summary:
 
 ---
 
-*© 2025 SenaiVerse | Command: /feature-reactnative | Claude Code System v2.0 (React Native/Expo Edition)*
+*© 2025 SenaiVerse | Command: /feature-reactnative | Claude Code System v2.2 (React Native/Expo Edition)*

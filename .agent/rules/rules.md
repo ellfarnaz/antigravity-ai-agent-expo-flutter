@@ -4,7 +4,7 @@ trigger: always_on
 
 # 🎯 Antigravity AI Agent System Rules
 
-> **Version:** 2.1 | **Last Updated:** 2025-12-16
+> **Version:** 2.3 | **Last Updated:** 2025-12-17
 
 These rules are MANDATORY for all AI agents working on this project.
 
@@ -20,7 +20,26 @@ These rules are MANDATORY for all AI agents working on this project.
 | Design Conversion | `/stitch-flutter` or `/stitch-reactnative` | Mobile |
 
 > [!IMPORTANT]
+> **CRITICAL: MANDATORY USE OF EXISTING AGENTS!**
+> When running a workflow, you MUST use the agents defined in `.agent/agents/` (Project) or Global configuration.
+> ❌ DO NOT create ad-hoc agents.
+> ❌ DO NOT ignore agent references (e.g., `@grand-architect-flutter`).
+> ✅ ALWAYS call the specific listed agent in the workflow using `INVOKE: @agent-name` syntax.
+>
 > DO NOT start coding without using the appropriate workflow. Workflows ensure all quality gates are met.
+
+### Available Agents
+
+| Flutter | React Native | Purpose |
+|---------|--------------|--------|
+| `@grand-architect-flutter` | `@grand-architect-reactnative` | Architecture & planning |
+| `@stitch-converter-flutter` | `@stitch-converter-reactnative` | Design-to-code conversion |
+| `@security-specialist-flutter` | `@security-specialist-reactnative` | Security audit (OWASP) |
+| `@test-generator-flutter` | `@test-generator-reactnative` | Test suite generation |
+| `@a11y-enforcer-flutter` | `@a11y-enforcer-reactnative` | Accessibility (WCAG 2.2) |
+| `@design-token-guardian-flutter` | `@design-token-guardian-reactnative` | Theme token compliance |
+| `@performance-prophet-flutter` | `@performance-prophet-reactnative` | Performance prediction |
+| `@performance-enforcer-flutter` | `@performance-enforcer-reactnative` | Runtime optimization |
 
 ---
 
@@ -226,6 +245,9 @@ Features Required:
 
 ## 🎨 Rule 12: Stitch Design Integration
 
+> [!TIP]
+> When using `/feature-flutter` or `/feature-reactnative`, Stitch detection happens automatically in **Phase 0**. You don't need to run `/stitch-*` separately.
+
 ### Folder Detection
 
 ```yaml
@@ -241,17 +263,16 @@ Structure:
       └── screen.png
 ```
 
-### Conversion Workflow
+### Phase 0 Workflow (Automatic in /feature-*)
 
-| Step | Action |
-|------|--------|
-| 1 | Detect `stitch_*` folder in project |
-| 2 | Run `/stitch-flutter` or `/stitch-reactnative` |
-| 3 | Extract design tokens from TailwindCSS config |
-| 4 | Generate theme files (colors, typography, spacing) |
-| 5 | Convert HTML elements to native widgets/components |
-| 6 | Generate navigation based on folder structure |
-| 7 | Run QA checks (a11y, tokens, performance) |
+| Step | Action | Agent |
+|------|--------|-------|
+| 0.1 | Scan `stitch_*` folders, list all screens | - |
+| 0.2 | Create screen inventory table | `@grand-architect-*` |
+| 0.3 | Extract design tokens (colors, typography, spacing) | `@stitch-converter-*` |
+| 0.4 | Identify reusable components | `@stitch-converter-*` |
+| 0.5 | Define navigation structure | `@grand-architect-*` |
+| 0.6 | Create `task.md` & `implementation_plan.md` | **MANDATORY** |
 
 ### Screen Naming Convention
 
@@ -262,16 +283,25 @@ Structure:
 | `profile/` | `lib/screens/profile_screen.dart` | `app/(app)/profile.tsx` |
 | `detail_[id]/` | `lib/screens/detail_screen.dart` | `app/detail/[id].tsx` |
 
-### Auto-Detection in Feature Workflow
+### When to Use Each Workflow
 
-```
-/feature-flutter or /feature-reactnative
-  ↓
-Phase 0: Detect stitch_* folder
-  ↓
-If found → Use Stitch Converter agent first
-If not found → Continue with AI generation
-```
+| Scenario | Command |
+|----------|--------|
+| New feature WITH stitch folder | `/feature-flutter` or `/feature-reactnative` |
+| Convert stitch ONLY (no feature) | `/stitch-flutter` or `/stitch-reactnative` |
+| Existing code (no stitch) | `/feature-flutter` or `/feature-reactnative` |
+
+---
+
+## 📋 Rule 13: Task Creation & Tracking (CRITICAL)
+
+**Mandatory Workflow:**
+1. **Create Task**: When starting a workflow (e.g., `/feature-flutter`), FIRST create/update `task.md` with detailed steps.
+2. **Create Plan**: Create `implementation_plan.md` BEFORE writing code.
+3. **Live Updates**: You MUST mark items as `[/]` (in-progress) and `[x]` (completed) immediately as you work.
+   - ❌ **Forbidden**: Completing a task without checking it off in `task.md`.
+   - ❌ **Forbidden**: Modifying code that contradicts `implementation_plan.md` without updating the plan first.
+4. **Synchronization**: The agent is responsible for keeping these artifacts strictly synchronized with the actual state of the project.
 
 ---
 
@@ -290,4 +320,4 @@ If not found → Continue with AI generation
 
 ---
 
-*© 2025 SenaiVerse | Antigravity AI Agent System v2.1*
+*© 2025 SenaiVerse | Antigravity AI Agent System v2.3*

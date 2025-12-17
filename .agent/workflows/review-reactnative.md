@@ -6,7 +6,7 @@ description: Comprehensive multi-agent code review for React Native/Expo coverin
 
 # Comprehensive Code Review
 
-Reviewing: $ARGUMENTS
+> **🔍 Reviewing:** $ARGUMENTS
 
 ## 🔄 Multi-Agent Review Process (Parallel Execution)
 

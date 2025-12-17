@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HabitFlow - Profile &amp; Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee79",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                        "surface-dark": "#182e21",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-display transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 glass-effect p-4 pb-2 justify-between border-b border-black/5 dark:border-white/5">
+<div class="w-12 h-12 flex items-center justify-center opacity-0 pointer-events-none">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Profile</h2>
+<div class="w-12 h-12 flex items-center justify-center text-slate-900 dark:text-white">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">more_vert</span>
+</div>
+</div>
+<!-- Main Content Scroll Area -->
+<div class="flex-1 overflow-y-auto pb-8">
+<!-- Profile Header -->
+<div class="flex flex-col items-center pt-8 pb-6 px-4 relative">
+<!-- Glow Effect Background -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-32 w-32 border-4 border-surface-light dark:border-surface-dark shadow-xl" data-alt="Portrait of a young adult smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC62lCmZIblHBodKtkMzOHNJ9o3LOSO2MXO3LZQFfJa_nFG-dClVZpM3-A6qsHQtKLPWWRN7VOIWIT2OFsNFEOj9sryCXpiLx6n9ok64agXqrHwYawSXmm0mlnIS0IEZcVn5ewKhsybSXZRqSmwJ9LgZlxXy-bNaqnnroE07R2LnpMTy_wqTqN9McXqUb8tSyi6LGM-I3oIAfSRFXPTZyVSgyKdBW1AkiNhZBE_vDyhTOfKjmSF2HzmCpNZQ5dfm4e9cZR2BvbeLQ");'></div>
+<div class="absolute bottom-1 right-1 bg-primary text-background-dark rounded-full p-1.5 border-4 border-background-light dark:border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<h1 class="text-slate-900 dark:text-white text-[26px] font-bold leading-tight tracking-[-0.015em] text-center">Alex Doe</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 text-center">Member since Jan 2024</p>
+</div>
+</div>
+<button class="flex items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-slate-200 dark:bg-surface-dark text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-[#234832] transition-colors text-sm font-bold w-full max-w-[200px] shadow-sm">
+<span class="truncate">Edit Profile</span>
+</button>
+</div>
+</div>
+<!-- Achievements Section -->
+<div class="flex flex-col gap-2 pb-6">
+<div class="flex items-center justify-between px-6">
+<h2 class="text-slate-900 dark:text-white tracking-tight text-xl font-bold leading-tight">Your Achievements</h2>
+<button class="text-primary text-sm font-semibold hover:text-primary/80">View All</button>
+</div>
+<div class="flex overflow-x-auto no-scrollbar py-2 pl-6 pr-4 snap-x snap-mandatory">
+<div class="flex gap-4">
+<!-- Card 1: Unlocked -->
+<div class="snap-start shrink-0 w-36 flex flex-col items-center gap-3 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
+<span class="text-3xl">🔥</span>
+</div>
+<div class="text-center">
+<p class="text-slate-900 dark:text-white text-sm font-bold leading-tight">7-Day Warrior</p>
+<p class="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">Unlocked</p>
+</div>
+</div>
+<!-- Card 2: Unlocked -->
+<div class="snap-start shrink-0 w-36 flex flex-col items-center gap-3 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+<span class="text-3xl">🌟</span>
+</div>
+<div class="text-center">
+<p class="text-slate-900 dark:text-white text-sm font-bold leading-tight">First Week</p>
+<p class="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">Unlocked</p>
+</div>
+</div>
+<!-- Card 3: Unlocked -->
+<div class="snap-start shrink-0 w-36 flex flex-col items-center gap-3 p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+<span class="text-3xl">💪</span>
+</div>
+<div class="text-center">
+<p class="text-slate-900 dark:text-white text-sm font-bold leading-tight">Strong Start</p>
+<p class="text-primary text-[10px] font-bold uppercase tracking-wider mt-1">Unlocked</p>
+</div>
+</div>
+<!-- Card 4: Locked -->
+<div class="snap-start shrink-0 w-36 flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-100 dark:bg-white/5 border border-transparent border-dashed dark:border-white/10 opacity-70">
+<div class="relative w-16 h-16 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center grayscale">
+<span class="text-3xl opacity-50">🏆</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 rounded-full">
+<span class="material-symbols-outlined text-white text-lg">lock</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold leading-tight">30-Day Legend</p>
+<p class="text-slate-400 dark:text-slate-500 text-[10px] font-medium mt-1">Hit 30 days</p>
+</div>
+</div>
+<!-- Card 5: Locked -->
+<div class="snap-start shrink-0 w-36 flex flex-col items-center gap-3 p-4 rounded-xl bg-slate-100 dark:bg-white/5 border border-transparent border-dashed dark:border-white/10 opacity-70">
+<div class="relative w-16 h-16 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center grayscale">
+<span class="text-3xl opacity-50">📚</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 rounded-full">
+<span class="material-symbols-outlined text-white text-lg">lock</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold leading-tight">Bookworm</p>
+<p class="text-slate-400 dark:text-slate-500 text-[10px] font-medium mt-1">Read 10 books</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings Menu -->
+<div class="px-4 flex flex-col gap-6 pb-6">
+<!-- Group 1: App Settings -->
+<div>
+<h3 class="px-2 pb-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">App Settings</h3>
+<div class="flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-white/5">
+<!-- Notifications -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate text-left">Notifications</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<div class="h-px w-full bg-slate-100 dark:bg-white/5 mx-4"></div>
+<!-- Theme -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<div class="text-left">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal truncate">Theme</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="text-sm">Auto</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+<div class="h-px w-full bg-slate-100 dark:bg-white/5 mx-4"></div>
+<!-- Language -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div class="text-left">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal truncate">Language</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="text-sm">English</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Group 2: Data & Privacy -->
+<div>
+<h3 class="px-2 pb-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Data &amp; Support</h3>
+<div class="flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-200 dark:border-white/5">
+<!-- Export Data -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-300 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate text-left">Export Data</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<div class="h-px w-full bg-slate-100 dark:bg-white/5 mx-4"></div>
+<!-- Privacy Policy -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-300 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate text-left">Privacy Policy</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<div class="h-px w-full bg-slate-100 dark:bg-white/5 mx-4"></div>
+<!-- Send Feedback -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-300 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate text-left">Send Feedback</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<div class="h-px w-full bg-slate-100 dark:bg-white/5 mx-4"></div>
+<!-- About -->
+<button class="flex items-center gap-4 p-4 min-h-[64px] justify-between group active:bg-slate-50 dark:active:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-300 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined">info</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal flex-1 truncate text-left">About HabitFlow</p>
+</div>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="text-sm">v1.2.0</span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Account Actions -->
+<div class="flex flex-col gap-3 mt-2">
+<button class="w-full h-12 rounded-xl bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white font-bold text-sm hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+                        Change Password
+                    </button>
+<button class="w-full h-12 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400 font-bold text-sm hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors">
+                        Log Out
+                    </button>
+</div>
+</div>
+<!-- Stats Footer -->
+<div class="px-6 py-8">
+<div class="flex justify-between items-center max-w-sm mx-auto">
+<div class="flex flex-col items-center gap-1">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">12</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400">Habits</span>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-white/10"></div>
+<div class="flex flex-col items-center gap-1">
+<span class="text-2xl font-bold text-primary">45</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400">Days Active</span>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-white/10"></div>
+<div class="flex flex-col items-center gap-1">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">234</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400">Completed</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<p class="text-[10px] text-slate-400 dark:text-slate-600 font-medium">HabitFlow © 2024</p>
+</div>
+</div>
+<!-- Bottom Spacer for Safe Area -->
+<div class="h-6"></div>
+</div>
+</div>
+</body></html>

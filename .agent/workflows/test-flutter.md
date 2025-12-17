@@ -6,7 +6,7 @@ description: Generates comprehensive Flutter test suite with ROI-based prioritiz
 
 # Generate Test Suite
 
-Generating tests for: $ARGUMENTS
+> **🧪 Generating tests for:** $ARGUMENTS
 
 ## Test Generation Workflow
 

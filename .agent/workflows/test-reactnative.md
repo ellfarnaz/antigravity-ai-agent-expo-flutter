@@ -6,7 +6,7 @@ description: Generates comprehensive React Native/Expo test suite with ROI-based
 
 # Test Suite Generation (React Native/Expo)
 
-Generating tests for: $ARGUMENTS
+> **🧪 Generating tests for:** $ARGUMENTS
 
 ## Test Strategy (ROI-Based Prioritization)
 
