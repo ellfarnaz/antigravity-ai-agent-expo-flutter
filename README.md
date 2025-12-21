@@ -4,8 +4,11 @@ A comprehensive collection of **enterprise-grade** specialized AI agents and orc
 
 > **📊 Total: 15,000+ lines** of enterprise-grade AI agent code across 24 files.
 
-## ✨ What's New (v2.0)
+## ✨ What's New (v2.4)
 
+- 🎯 **Product Planning** - `/plan-product` workflow for idea-to-PRD transformation ← NEW!
+- 🔗 **PRD Integration** - `/feature-*` auto-detects `product_requirements.md` ← NEW!
+- 📄 **Workflow Guide** - Complete documentation for all 9 workflows ← NEW!
 - 🔐 **Enterprise Security** - OWASP, Biometric, JWT/OAuth2/PKCE, Root Detection
 - ⚡ **Advanced Performance** - Hermes, JSI, Shader Jank, Cold Start Prediction
 - ♿ **WCAG 2.2** - Latest accessibility standards with automated testing
