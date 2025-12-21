@@ -1,12 +1,30 @@
 # 🤖 Specialized AI Agents
 
-This directory contains **16 enterprise-grade AI agents** - 8 for Flutter and 8 for React Native/Expo development. Each agent is an expert in a specific domain with comprehensive coverage of industry best practices.
+This directory contains **17 enterprise-grade AI agents** - 8 for Flutter, 8 for React Native/Expo, and 1 platform-agnostic. Each agent is an expert in a specific domain with comprehensive coverage of industry best practices.
 
-> **📊 Total: 13,000+ lines** of specialized AI agent code across all domains.
+> **📊 Total: 14,000+ lines** of specialized AI agent code across all domains.
 
 ---
 
-## � Agent Catalog
+## 📋 Agent Catalog
+
+### 🎯 Product Planner (NEW!)
+**Purpose:** Product discovery and requirements architect - transforms brief ideas into comprehensive PRDs
+
+| Platform | File | Lines |
+|----------|------|-------|
+| Agnostic | [`product-planner.md`](product-planner.md) | ~400 |
+
+**Capabilities:**
+- ✅ **Brief-to-PRD Transformation** - "habit tracker app" → Full requirements
+- ✅ **Feature Engineering** - MVP prioritization with MoSCoW
+- ✅ **Screen Mapping** - Complete UI inventory
+- ✅ **Technical Architecture** - Stack recommendations
+- ✅ **Development Roadmap** - Sprint planning
+- ✅ **Memory Storage** - PRD saved for reference
+- ✅ **Workflow Integration** - Seamless handoff to `/feature-*`
+
+---
 
 ### 🏗️ Grand Architect
 **Purpose:** Enterprise system architecture and design patterns expert
@@ -239,8 +257,8 @@ model: sonnet | opus
 
 | Metric | Value |
 |--------|-------|
-| Total Agents | 16 (8 Flutter + 8 React Native) |
-| Total Lines | 13,000+ |
+| Total Agents | 17 (8 Flutter + 8 React Native + 1 Agnostic) |
+| Total Lines | 14,000+ |
 | Average per Agent | 800+ lines |
 | Coverage Areas | Security, Performance, A11y, Design, Testing, Architecture, **Stitch** |
 

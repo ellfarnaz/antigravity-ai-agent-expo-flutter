@@ -18,11 +18,16 @@ A comprehensive collection of **enterprise-grade** specialized AI agents and orc
 
 ## 📦 What's Included
 
-This repository contains **16 specialized agents** and **8 orchestration workflows**.
+This repository contains **17 specialized agents** and **9 orchestration workflows**.
 
-### 🎯 Specialized Agents (16)
+### 🎯 Specialized Agents (17)
 
 Each agent is an enterprise-grade domain expert:
+
+#### Platform-Agnostic (1)
+| Agent | Lines | Key Features |
+|-------|-------|--------------|
+| 🎯 **Product Planner** | ~400 | Brief-to-PRD, MVP scoping, Feature engineering |
 
 #### Flutter Agents (8)
 | Agent | Lines | Key Features |
@@ -48,10 +53,11 @@ Each agent is an enterprise-grade domain expert:
 | 🔮 **Performance Prophet** | 720 | JSI/Bridge, Fabric, Cold start prediction |
 | 🖼️ **Stitch Converter** | ~450 | HTML → React Native components |
 
-### 🔄 Orchestration Workflows (8)
+### 🔄 Orchestration Workflows (9)
 
 | Workflow | Purpose | Agents | Output |
 |----------|---------|--------|--------|
+| `/plan-product` | **Product discovery & PRD** | 2 | Requirements doc |
 | `/feature-flutter` | Full feature implementation | 6+ | Code + Tests + Docs |
 | `/feature-reactnative` | Full feature implementation | 6+ | Code + Tests + Docs |
 | `/review-flutter` | Comprehensive code review | 5 parallel | Review report |
@@ -64,6 +70,27 @@ Each agent is an enterprise-grade domain expert:
 ---
 
 ## 🔄 Workflow Details
+
+### 🎯 `/plan-product` (NEW!)
+**Product Discovery & Planning** - Platform-agnostic.
+
+```
+/plan-product I want to build a habit tracker app
+```
+
+**What it does:**
+1. **Vision Clarification** - Understand product goals
+2. **Feature Engineering** - MVP prioritization (MoSCoW)
+3. **Screen Mapping** - UI inventory with navigation
+4. **Technical Architecture** - Stack recommendations
+5. **Development Roadmap** - Sprint planning
+6. **Memory Storage** - PRD saved for reference
+
+**Output:** Comprehensive Product Requirements Document (PRD)
+
+**Next Step:** Run `/feature-flutter` or `/feature-reactnative`
+
+---
 
 ### 🎯 `/feature-flutter` & `/feature-reactnative`
 **Full Feature Implementation** with enterprise-grade quality.
@@ -200,9 +227,9 @@ cd antigravity-ai-agent-expo-flutter
 
 | Metric | Value |
 |--------|-------|
-| Total Lines | **15,000+** |
-| Total Agents | 16 (8 per platform) |
-| Total Workflows | 8 (4 per platform) |
+| Total Lines | **16,000+** |
+| Total Agents | 17 (8 per platform + 1 agnostic) |
+| Total Workflows | 9 (4 per platform + 1 agnostic) |
 | Parallel Execution | ✅ 2-3x faster |
 | Stitch Integration | ✅ Auto-detect |
 
@@ -210,9 +237,11 @@ cd antigravity-ai-agent-expo-flutter
 
 ## 📚 Documentation
 
-- **[Agents Documentation](.agent/agents/README.md)** - 16 enterprise agents
-- **[Workflows Documentation](.agent/workflows/README.md)** - 8 parallel workflows
+- **[Workflow Guide](WORKFLOW_GUIDE.md)** - Complete usage flow & examples
+- **[Agents Documentation](.agent/agents/README.md)** - 17 enterprise agents
+- **[Workflows Documentation](.agent/workflows/README.md)** - 9 orchestration workflows
 - **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions
+- **[Stitch Guide](STITCH_GUIDE.md)** - Google Stitch design conversion
 
 ---
 

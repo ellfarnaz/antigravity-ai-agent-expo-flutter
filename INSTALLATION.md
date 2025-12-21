@@ -54,13 +54,14 @@ Install agents and workflows **globally** to make them available in **all your A
 
    The script will:
    - Check if Antigravity is installed
-   - Show you what will be installed (16 agents + 8 workflows)
+   - Show you what will be installed (17 agents + 9 workflows)
    - Ask for confirmation
    - Copy all files to `~/.gemini/antigravity/global_agents/` and `~/.gemini/antigravity/global_workflows/`
 
 3. **Verify installation:**
 
    Open any project in Antigravity AI and type `/` - you should see:
+   - `/plan-product`
    - `/feature-flutter`
    - `/feature-reactnative`
    - `/review-flutter`
@@ -78,6 +79,7 @@ Install agents and workflows **globally** to make them available in **all your A
 │
 └── antigravity/
     ├── global_agents/
+    │   ├── product-planner.md           # NEW! Platform-agnostic
     │   ├── a11y-enforcer-flutter.md
     │   ├── a11y-enforcer-reactnative.md
     │   ├── design-token-guardian-flutter.md
@@ -96,6 +98,7 @@ Install agents and workflows **globally** to make them available in **all your A
     │   └── test-generator-reactnative.md
     │
     └── global_workflows/
+        ├── plan-product.md              # NEW! Platform-agnostic
         ├── feature-flutter.md
         ├── feature-reactnative.md
         ├── review-flutter.md

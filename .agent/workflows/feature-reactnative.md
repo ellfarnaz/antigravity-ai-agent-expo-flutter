@@ -12,6 +12,9 @@ description: Implements new React Native/Expo features using multi-agent orchest
 
 Execute the following multi-agent workflow for React Native/Expo development:
 
+> [!TIP]
+> **Starting a new project?** Run `/plan-product` first to generate a comprehensive Product Requirements Document (PRD) with features, screens, and architecture recommendations before using this workflow.
+
 ---
 
 ### Phase 0: Stitch Design Discovery (MANDATORY when stitch_* exists)

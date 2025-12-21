@@ -1,12 +1,47 @@
 # 🔄 Orchestration Workflows
 
-This directory contains **8 enterprise-grade multi-agent orchestration workflows** - 4 for Flutter and 4 for React Native/Expo. Each workflow coordinates multiple specialized agents to accomplish complex development tasks with parallel execution.
+This directory contains **9 enterprise-grade multi-agent orchestration workflows** - 4 for Flutter, 4 for React Native/Expo, and 1 platform-agnostic. Each workflow coordinates multiple specialized agents to accomplish complex development tasks with parallel execution.
 
-> **📊 Total: 2,100+ lines** of workflow orchestration code across 8 files.
+> **📊 Total: 2,500+ lines** of workflow orchestration code across 9 files.
 
 ---
 
 ## 📋 Workflow Catalog
+
+### 🎯 Product Planning Workflow (NEW!)
+
+#### `/plan-product`
+**File:** [`plan-product.md`](plan-product.md) (~350 lines)
+
+**Purpose:** Platform-agnostic product discovery workflow that transforms brief ideas into comprehensive Product Requirements Documents (PRD).
+
+**Agent Orchestra:**
+| Agent | Role |
+|-------|------|
+| 🎯 Product Planner | Vision clarification, feature extraction, screen mapping |
+| 🏗️ Grand Architect | Technical architecture recommendations |
+
+**Outputs:**
+- ✅ Complete Product Requirements Document (PRD)
+- ✅ User personas and user stories
+- ✅ Feature list with MVP prioritization
+- ✅ Screen inventory with navigation
+- ✅ Technical stack recommendations
+- ✅ Development roadmap (sprint planning)
+- ✅ Memory storage for future reference
+
+**Usage:**
+```
+/plan-product I want to build a habit tracker app
+/plan-product I want to build a social fitness app
+/plan-product Daily expense tracking application
+```
+
+**Integration:** After PRD approval, proceed with:
+- `/feature-flutter [feature]` for Flutter development
+- `/feature-reactnative [feature]` for React Native development
+
+---
 
 ### 🎯 Feature Implementation Workflows
 
@@ -357,8 +392,8 @@ Include relevant information:
 
 | Metric | Value |
 |--------|-------|
-| Total Workflows | 6 (3 Flutter + 3 React Native) |
-| Total Lines | 1,550 |
+| Total Workflows | 9 (4 Flutter + 4 React Native + 1 Agnostic) |
+| Total Lines | 2,500+ |
 | Average per Workflow | 258 lines |
 | Parallel Execution | ✅ Enabled (2-3x faster) |
 | CI/CD Templates | ✅ Included |
