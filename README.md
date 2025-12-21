@@ -254,7 +254,8 @@ cd antigravity-ai-agent-expo-flutter
 - **[Workflow Guide](WORKFLOW_GUIDE.md)** - Complete usage flow & examples
 - **[Agents Documentation](.agent/agents/README.md)** - 17 enterprise agents
 - **[Workflows Documentation](.agent/workflows/README.md)** - 9 orchestration workflows
-- **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions
+- **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions (macOS/Linux)
+- **[Windows Installation Guide](INSTALLATION_WINDOWS.md)** - Windows setup with PowerShell scripts
 - **[Stitch Guide](STITCH_GUIDE.md)** - Google Stitch design conversion
 
 ---
