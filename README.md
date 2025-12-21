@@ -2,7 +2,7 @@
 
 A comprehensive collection of **enterprise-grade** specialized AI agents and orchestration workflows for **Flutter** and **React Native/Expo** development, powered by Antigravity AI.
 
-> **📊 Total: 15,000+ lines** of enterprise-grade AI agent code across 24 files.
+> **📊 Total: 17,000+ lines** of enterprise-grade AI agent code across 26 files.
 
 ## ✨ What's New (v2.4)
 
@@ -103,12 +103,13 @@ Each agent is an enterprise-grade domain expert:
 ```
 
 **What it does:**
-1. **Phase 0:** Auto-detect Google Stitch designs (optional)
-2. **Phase 1:** Grand Architect planning
-3. **Phase 2:** Security audit (OWASP, JWT)
-4. **Phase 3:** Implementation
-5. **Phase 4:** Quality assurance (5 agents parallel)
-6. **Phase 5:** Test generation + documentation
+1. **Phase -1:** Auto-detect PRD from `/plan-product` (if exists)
+2. **Phase 0:** Auto-detect Google Stitch designs (optional)
+3. **Phase 1:** Grand Architect planning
+4. **Phase 2:** Security audit (OWASP, JWT)
+5. **Phase 3:** Implementation
+6. **Phase 4:** Quality assurance (5 agents parallel)
+7. **Phase 5:** Test generation + documentation
 
 **Output:** Complete feature + security review + tests + docs
 
@@ -181,7 +182,7 @@ Each agent is an enterprise-grade domain expert:
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/antigravity-ai-agent-expo-flutter.git
+git clone https://github.com/ellfarnaz/antigravity-ai-agent-expo-flutter.git
 cd antigravity-ai-agent-expo-flutter
 ./install-global.sh
 ```
@@ -272,4 +273,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ❤️ for the mobile development community | v2.0 Enterprise Edition**
+**Made with ❤️ for the mobile development community | v2.4 Enterprise Edition**
