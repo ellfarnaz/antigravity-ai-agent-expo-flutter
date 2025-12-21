@@ -4,7 +4,7 @@ trigger: always_on
 
 # 🎯 Antigravity AI Agent System Rules
 
-> **Version:** 2.3 | **Last Updated:** 2025-12-17
+> **Version:** 2.4 | **Last Updated:** 2025-12-22
 
 These rules are MANDATORY for all AI agents working on this project.
 
@@ -14,6 +14,7 @@ These rules are MANDATORY for all AI agents working on this project.
 
 | Task Type | Command | Platform |
 |-----------|---------|----------|
+| Product Planning | `/plan-product` | Agnostic |
 | New Feature | `/feature-flutter` or `/feature-reactnative` | Mobile |
 | Code Review | `/review-flutter` or `/review-reactnative` | Mobile |
 | Test Generation | `/test-flutter` or `/test-reactnative` | Mobile |
@@ -30,16 +31,25 @@ These rules are MANDATORY for all AI agents working on this project.
 
 ### Available Agents
 
-| Flutter | React Native | Purpose |
-|---------|--------------|--------|
-| `@grand-architect-flutter` | `@grand-architect-reactnative` | Architecture & planning |
-| `@stitch-converter-flutter` | `@stitch-converter-reactnative` | Design-to-code conversion |
-| `@security-specialist-flutter` | `@security-specialist-reactnative` | Security audit (OWASP) |
-| `@test-generator-flutter` | `@test-generator-reactnative` | Test suite generation |
-| `@a11y-enforcer-flutter` | `@a11y-enforcer-reactnative` | Accessibility (WCAG 2.2) |
-| `@design-token-guardian-flutter` | `@design-token-guardian-reactnative` | Theme token compliance |
-| `@performance-prophet-flutter` | `@performance-prophet-reactnative` | Performance prediction |
-| `@performance-enforcer-flutter` | `@performance-enforcer-reactnative` | Runtime optimization |
+| Platform | Agent | Purpose |
+|----------|-------|--------|
+| Agnostic | `@product-planner` | Product discovery & PRD generation |
+| Flutter | `@grand-architect-flutter` | Architecture & planning |
+| Flutter | `@stitch-converter-flutter` | Design-to-code conversion |
+| Flutter | `@security-specialist-flutter` | Security audit (OWASP) |
+| Flutter | `@test-generator-flutter` | Test suite generation |
+| Flutter | `@a11y-enforcer-flutter` | Accessibility (WCAG 2.2) |
+| Flutter | `@design-token-guardian-flutter` | Theme token compliance |
+| Flutter | `@performance-prophet-flutter` | Performance prediction |
+| Flutter | `@performance-enforcer-flutter` | Runtime optimization |
+| React Native | `@grand-architect-reactnative` | Architecture & planning |
+| React Native | `@stitch-converter-reactnative` | Design-to-code conversion |
+| React Native | `@security-specialist-reactnative` | Security audit (OWASP) |
+| React Native | `@test-generator-reactnative` | Test suite generation |
+| React Native | `@a11y-enforcer-reactnative` | Accessibility (WCAG 2.2) |
+| React Native | `@design-token-guardian-reactnative` | Theme token compliance |
+| React Native | `@performance-prophet-reactnative` | Performance prediction |
+| React Native | `@performance-enforcer-reactnative` | Runtime optimization |
 
 ---
 
@@ -308,6 +318,7 @@ Structure:
 ## 🚀 Quick Reference
 
 ```
+/plan-product       → Product discovery & PRD generation
 /feature-flutter    → Implement Flutter feature with full QA
 /feature-reactnative → Implement React Native feature with full QA
 /review-flutter     → Comprehensive Flutter code review
