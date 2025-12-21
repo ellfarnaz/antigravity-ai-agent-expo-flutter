@@ -299,22 +299,38 @@ Create development roadmap:
 
 ---
 
-### Phase 6: Documentation & Storage
+### Phase 6: Documentation & Storage (CRITICAL)
+
+> [!IMPORTANT]
+> The PRD MUST be saved in the **project root** as `product_requirements.md` so that `/feature-*` workflows can automatically detect and use it.
 
 **Step 6.1: Generate PRD** (INVOKE: @product-planner)
 
 Create `product_requirements.md` following the template in @product-planner agent.
 
-**Step 6.2: Store in Memory**
-
-Save PRD to Antigravity memory:
+**Step 6.2: Save PRD to Project Root (MANDATORY)**
 
 ```bash
-# Memory location
+# PRIMARY LOCATION - Required for /feature-* integration
+./product_requirements.md
+
+# File MUST contain these sections for auto-detection:
+# - ## ✨ Feature Specification (or ## MVP Features)
+# - ## 🗺️ Screen Inventory
+# - ## 🏗️ Technical Architecture
+# - ## 🚀 Development Roadmap
+```
+
+**Step 6.3: Store in Memory (Secondary)**
+
+Also save to Antigravity memory for reference:
+
+```bash
+# Memory location (backup)
 .gemini/memory/products/[project_name]_prd.md
 ```
 
-**Step 6.3: Create Project Summary**
+**Step 6.4: Create Project Summary**
 
 Store reference in memory index:
 
@@ -325,7 +341,7 @@ projects:
     created: [YYYY-MM-DD]
     platform: [Flutter | React Native | Both]
     status: [Planning | In Progress | Completed]
-    prd_path: ./[project_name]_prd.md
+    prd_path: ./product_requirements.md
     features_count: [X]
     screens_count: [X]
     mvp_weeks: [X]
@@ -351,17 +367,21 @@ flowchart TD
     H --> I
     
     I --> J["Phase 6: Generate PRD"]
-    J --> K["Store in Memory"]
-    K --> L["Ready for /feature-*"]
+    J --> K["Save to project root\n./product_requirements.md"]
+    K --> L["Store in memory\n(backup)"]
+    L --> M["Ready for /feature-*\n(auto-detects PRD)"]
 ```
 
 ---
 
 ## Output Artifacts
 
-### 1. Product Requirements Document
+### 1. Product Requirements Document (PRIMARY)
 
-**Path:** `product_requirements.md` (project root) or artifacts directory
+**Path:** `./product_requirements.md` (PROJECT ROOT - REQUIRED)
+
+> [!CAUTION]
+> This file MUST be in project root for `/feature-*` to auto-detect it.
 
 **Contents:**
 - Executive summary
@@ -374,7 +394,7 @@ flowchart TD
 - Risk assessment
 - Success metrics
 
-### 2. Memory Storage
+### 2. Memory Storage (BACKUP)
 
 **Path:** `.gemini/memory/products/[project_name]_prd.md`
 
@@ -388,22 +408,37 @@ flowchart TD
 
 ## Integration with Development Workflows
 
-After PRD is approved, continue with:
+> [!TIP]
+> After PRD is saved to project root, `/feature-*` workflows will **automatically detect** and use it!
+
+### Automatic PRD Detection Flow:
+
+```
+/plan-product → Creates ./product_requirements.md
+       ↓
+/feature-flutter → Detects PRD automatically
+       ↓
+Uses PRD for:
+  • Feature specifications
+  • Screen inventory
+  • Architecture decisions
+  • Sprint planning
+```
 
 ### For Flutter Development:
 ```
-/feature-flutter [First MVP Feature]
+/feature-flutter [First MVP Feature from PRD]
 ```
 
 ### For React Native Development:
 ```
-/feature-reactnative [First MVP Feature]
+/feature-reactnative [First MVP Feature from PRD]
 ```
 
 ### If Stitch Designs Available:
 1. Place designs in `stitch_[project_name]/`
 2. Run `/feature-flutter` or `/feature-reactnative`
-3. Workflow auto-detects and converts
+3. Workflow auto-detects BOTH Stitch AND PRD
 
 ---
 

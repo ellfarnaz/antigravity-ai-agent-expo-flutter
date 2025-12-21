@@ -17,6 +17,66 @@ Execute the following multi-agent workflow for React Native/Expo development:
 
 ---
 
+### Phase -1: PRD Discovery (AUTOMATIC when product_requirements.md exists)
+
+> [!NOTE]
+> If `./product_requirements.md` exists (created by `/plan-product`), this workflow will **automatically use it** as the foundation for development.
+
+**Step -1.1: PRD Detection**
+
+1. Search for `product_requirements.md` in project root
+2. If found, extract:
+   - Feature specifications (## ✨ Feature Specification / ## MVP Features)
+   - Screen inventory (## 🗺️ Screen Inventory)
+   - Technical architecture (## 🏗️ Technical Architecture)
+   - Development roadmap (## 🚀 Development Roadmap)
+
+**Step -1.2: PRD Integration** (INVOKE: @grand-architect-reactnative)
+
+When PRD is detected:
+
+```yaml
+Auto-Import from PRD:
+  Features:
+    - Use feature specifications as implementation guide
+    - Follow acceptance criteria
+    - Respect complexity ratings
+  
+  Screens:
+    - Use screen inventory as target files
+    - Follow Expo Router structure from PRD
+    - Maintain route consistency
+  
+  Architecture:
+    - Use recommended state management (Zustand/Redux)
+    - Follow folder structure
+    - Use suggested packages
+  
+  Roadmap:
+    - Implement according to sprint order
+    - Priority MVP features first
+```
+
+**Step -1.3: PRD Status Check**
+
+```markdown
+## PRD Integration Status
+
+| Source | Detected | Action |
+|--------|----------|--------|
+| `product_requirements.md` | ✅/❌ | Use as foundation |
+| `stitch_*/` folder | ✅/❌ | Extract designs |
+| Both available | ✅/❌ | Merge PRD + Stitch |
+```
+
+> [!IMPORTANT]
+> If BOTH PRD and Stitch are detected:
+> - PRD provides **feature logic** and **architecture**
+> - Stitch provides **UI design** and **tokens**
+> - Workflow merges both automatically
+
+---
+
 ### Phase 0: Stitch Design Discovery (MANDATORY when stitch_* exists)
 
 > [!IMPORTANT]

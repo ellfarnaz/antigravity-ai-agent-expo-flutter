@@ -151,6 +151,9 @@ Phase 6: Documentation
 
 **Process:**
 ```
+Phase -1: PRD Discovery (if product_requirements.md exists)
+   └── Auto-detect and use PRD as foundation ← NEW!
+   
 Phase 0: Stitch Discovery (if stitch_* folder exists)
    └── Scan designs, extract tokens, map screens
    
@@ -176,6 +179,13 @@ Phase 4: Quality Assurance (5 agents in PARALLEL)
 Phase 5: Final Review
    └── Code review, build validation, documentation
 ```
+
+> [!TIP]
+> If `product_requirements.md` exists from `/plan-product`, the workflow will **automatically use it** for:
+> - Feature specifications
+> - Screen inventory
+> - Architecture decisions
+> - Sprint planning
 
 **Output:**
 - Working feature code
