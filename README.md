@@ -181,11 +181,21 @@ Each agent is an enterprise-grade domain expert:
 
 ### Installation
 
+**macOS/Linux:**
 ```bash
 git clone https://github.com/ellfarnaz/antigravity-ai-agent-expo-flutter.git
 cd antigravity-ai-agent-expo-flutter
 ./install-global.sh
 ```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/ellfarnaz/antigravity-ai-agent-expo-flutter.git
+cd antigravity-ai-agent-expo-flutter
+.\install-global.ps1
+```
+
+> 📖 **Detailed guides:** [macOS/Linux](INSTALLATION.md) | [Windows](INSTALLATION_WINDOWS.md)
 
 ### Usage Examples
 
